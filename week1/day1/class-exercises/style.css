@@ -1,0 +1,20 @@
+table, th, td {
+    border: 1px solid;
+    padding: 4px;
+  }
+
+.textcard {
+    max-width: 900px;
+    background-color:#C0F7D7;
+    border-color:#27C76B;
+    border-style:ridge;
+    padding: 30px;
+}
+
+label {
+    padding: 10px;
+}
+
+input {
+    margin-top: 10px;
+}
