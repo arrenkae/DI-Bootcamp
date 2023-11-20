@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+}
+
+nav {
+    height: 45px;
+    background-color: black;
+    padding: 30px 50px 10px;
+}
+
+nav a {
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    float: right;
+}
+
+#products {
+    display: inline-block;
+    margin-top: 30px;
+}
+
+.productbox {
+    width: 400px;
+    text-align: center;
+    float: left;
+    margin-left: 35px;
+    margin-bottom: 35px;
+}
+
+.productbox img {
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+
+.productname {
+    font-family: Arial, sans-serif, sans-serif;
+    text-transform: capitalize;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.price_current {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 1.3em;
+    color: teal;
+    margin-right: 10px;
+}
+
+.price_old {
+    font-family: 'Helvetica', sans-serif;
+    color: grey;
+    text-decoration: line-through;
+}
+
+.productbox button {
+    margin-top: 15px;
+    width: 150px;
+    padding: 10px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    color: lightslategray;
+    background-color: white;
+    border: 1px solid lightgrey;
+}
