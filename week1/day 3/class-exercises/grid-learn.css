@@ -1,0 +1,31 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 100px);
+    grid-template-areas:
+    "nav nav nav"
+    "aside div div"
+    "footer footer footer"
+    ;
+    gap: 10px;
+}
+
+.item1 {
+    background-color: aqua;
+    grid-area: nav;
+}
+
+.item2 {
+    background-color: salmon;
+    grid-area: aside;
+}
+
+.item3 {
+    background-color: lightgoldenrodyellow;
+    grid-area: div;
+}
+
+.item4 {
+    background-color: lightslategray;
+    grid-area: footer;
+}

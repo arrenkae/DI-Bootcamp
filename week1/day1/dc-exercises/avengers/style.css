@@ -15,7 +15,7 @@ nav li {
   list-style-type: none;
 }
 
-nav a:link {
+nav a {
   text-decoration: none;
   text-transform: uppercase;
   font-family: 'Kanit', sans-serif;
@@ -37,14 +37,19 @@ nav a:link {
 #info {
   position: absolute;
   bottom: 10px;
-  left: 80px;
+  left: 60px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
 }
 
 #info h1 {
   color: black;
   font-family: 'Kanit', sans-serif;
-  font-size: 8em;
+  font-size: 100px;
+  line-height: 0.9em;
   text-transform: uppercase;
+  margin-left: 5%;
 }
 
 #info p {
@@ -52,8 +57,65 @@ nav a:link {
   color: black;
   font-family: 'Roboto', sans-serif;
   font-size: 1.4em;
-}
+}  margin-right: 10%;
 
 #add {
   margin-top: 10px;
+}
+
+@media all and (min-width: 992px) and (max-width: 1200px) {
+  nav {
+    background-color: rgb(75, 0, 37);
+  }
+  info h1 {
+    margin: 0;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 992px) {
+  #info {
+    display: block;
+    info: 30px;
+  }
+  #info h1 {
+    font-size: 60px;
+    margin: 0;
+  }
+  nav {
+    background-color: lightgreen;
+    justify-content: flex-end;
+  }
+  nav img {
+    display: none;
+  }
+  nav a {
+    color: black;
+    font-size: 1.5em;
+  }
+}
+
+@media all and (max-width: 768px) {
+  #info {
+    display: block;
+    left: 30px;
+  }
+  #info h1 {
+    font-size: 35px;
+    margin: 0;
+  }
+  nav {
+    background-color: rgb(252, 252, 134);
+    justify-content: flex-end;
+  }
+  nav img {
+    display: none;
+  }
+  nav a {
+    color: black;
+    font-size: 1.2em;
+    margin-right: 0px;
+    margin-left: 5px;
+  }info h1 {
+    margin: 0;
+  }
 }

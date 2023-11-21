@@ -52,7 +52,7 @@ nav a {
 
 .price_old {
     font-family: 'Helvetica', sans-serif;
-    color: grey;
+    color: grey;absolute
     text-decoration: line-through;
 }
 
@@ -65,4 +65,20 @@ nav a {
     color: lightslategray;
     background-color: white;
     border: 1px solid lightgrey;
+}
+
+article {
+    margin-bottom: 50px;
+}
+
+footer {
+    height: 20px;
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+    width: 100%;
 }
