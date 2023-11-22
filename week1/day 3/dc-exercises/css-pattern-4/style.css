@@ -1,0 +1,8 @@
+.container {
+    width: 640px;
+    height: 360px;
+    border: 1px black solid;
+    background: conic-gradient(rgba(216, 62, 59, 0.6) 90deg, rgb(216, 62, 59) 0 180deg, rgba(216, 62, 59, 0.6) 0 270deg, #fff 0);
+    background-size: 80px 80px;
+    background-position: 3px 3px;
+}

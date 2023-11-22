@@ -1,7 +1,3 @@
-.navbar {
-    background: none;
-}
-
 .navbar a {
     color: white !important;
     text-transform: uppercase;
@@ -14,12 +10,21 @@
 #intro {
     background-image: url("media/workspace.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: right;
     background-repeat: no-repeat;
     width: 100%;
     height: 70vh;
 }
 
 #intro .container {
-    width: 40%;
+    width: 50%;
+}
+
+@media (max-width: 992px) {
+    #intro .container {
+        width: 80%;
+    }
+    h1 {
+        font-size: 2.5em !important;
+    }
 }
