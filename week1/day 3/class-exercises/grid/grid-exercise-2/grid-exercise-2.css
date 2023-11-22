@@ -1,0 +1,67 @@
+.container {
+    width: 60%;
+    height: 90vh;
+    display: grid;
+    grid-template-areas:
+    "head head head head head"
+    "hero hero main main main"
+    "hero hero main main main"
+    "hero hero main main main"
+    "side side main main main"
+    "side side main main main"
+    "side side extr extr extr"
+    "side side extr extr extr"
+    "reli reli reli reli relp"
+    "reli reli reli reli relp"
+    "foot foot foot foot foot"
+    ;
+    
+    gap: 10px;
+}
+
+.container div {
+    color: white;
+    text-align: center;
+    text-transform: capitalize;
+    font-family: Helvetica, sans-serif;
+}
+
+.header {
+    background-color: lightskyblue;
+    grid-area: head;
+}
+
+.hero {
+    background-color: lightgray;
+    grid-area: hero;
+}
+
+.main {
+    background-color: gold;
+    grid-area: main;
+}
+
+.sidebar {
+    background-color: darkseagreen;
+    grid-area: side;
+}
+
+.extra {
+    background-color: dimgray;
+    grid-area: extr;
+}
+
+.related_images {
+    background-color: mediumseagreen;
+    grid-area: reli;
+}
+
+.related_posts {
+    background-color: pink;
+    grid-area: relp;
+}
+
+.footer {
+    background-color: orange;
+    grid-area: foot;
+}
