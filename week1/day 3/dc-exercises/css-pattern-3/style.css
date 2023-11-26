@@ -1,0 +1,25 @@
+.container {
+    width: 702px;
+    height: 702px;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    gap: 3px;
+    border: 2px black solid;
+}
+
+.box:nth-child(4n+1) {
+    background-color: #cccccc;
+}
+
+.box:nth-child(4n+2) {
+    background-color: #999999;
+}
+
+.box:nth-child(4n+3) {
+    background-color: #666666;
+}
+
+.box:nth-child(4n+4) {
+    background-color: #333333;
+}

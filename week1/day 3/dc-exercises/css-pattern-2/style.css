@@ -1,0 +1,22 @@
+.container {
+    width: 702px;
+    height: 702px;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    gap: 3px;
+    padding: 3px;
+    border: 2px black solid;
+}
+
+.box:nth-child(3n+1) {
+    background-color: #ff7100;
+}
+
+.box:nth-child(3n+2) {
+    background-color: #ffb26d;
+}
+
+.box:nth-child(3n+3) {
+    background-color: #a84a00;
+}
