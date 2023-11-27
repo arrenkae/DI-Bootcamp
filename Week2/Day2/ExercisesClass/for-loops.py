@@ -24,11 +24,11 @@
 
 # print(result)
 
-user_str = input('Give a 10 chars word: ')
-while len(user_str) != 10:
-    user_str = input('Give another word: ')
-    if user_str == 'stop':
-        print('If you say so')
-        break
-else:
-    print('Perfect word!')
+# user_str = input('Give a 10 chars word: ')
+# while len(user_str) != 10:
+#     user_str = input('Give another word: ')
+#     if user_str == 'stop':
+#         print('If you say so')
+#         break
+# else:
+#     print('Perfect word!')
