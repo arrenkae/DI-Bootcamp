@@ -1,34 +1,63 @@
-# students = ['Lior', 'Sveta', 'Estee', 'David']
-
-# for s in students:
-#     if s is 'Sveta':
-#         print(f'Happy birthday, {s}')
-#     else:
-#         print(f'Hello, {s}')
+students = ['Lior', 'Sveta', 'Estee', 'David']
 
 
-# for i in range(1,11,2):
-#     print(i)
+#regular for loop
+for each_s in students:
+    if each_s is 'Sveta':
+        print('Happy b-day, Sveta')
+    else:
+        print(f'hello, {each_s}')
 
-# for i in range(10):
-#     print(i)
 
-# some_list = list(range(1,11))
-# print(some_list)
+# for loop + range()
+for i in range(11):
+    print(i)
 
-# print(sum(some_list))
+some_l = list(range(1,11)) #the range constructor
+print(some_l)
 
-# result = 0
-#     for i in some_list:
-#         result += 1
 
-# print(result)
+#Built-In functions that uses for loops
+print(sum(some_l))
+print(min(some_l))
+print(max(some_l))
 
-# user_str = input('Give a 10 chars word: ')
-# while len(user_str) != 10:
-#     user_str = input('Give another word: ')
-#     if user_str == 'stop':
-#         print('If you say so')
-#         break
-# else:
-#     print('Perfect word!')
+#sum behind the scenes (uses a for loop)
+result = 0
+for i in some_l:
+    result += i
+
+print(result)
+
+
+# for enumerate
+for i, j in enumerate(students):
+    if i == 2:
+        print(j)
+
+
+#While with counter
+count = 1
+while count <= 5:
+    print('python')
+    count += 1
+
+#while with flag
+active = True #flag
+
+while active:
+    user_str = input('give a word again: ') 
+    if user_str == 'quit':
+        print('Thanks for playing')
+        break
+    elif len(user_str) == 10:
+        active = False
+        print('Congrats!') 
+    elif len(user_str) == 5:
+        continue
+        
+
+
+    
+    
+
