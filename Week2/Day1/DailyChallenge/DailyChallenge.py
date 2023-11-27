@@ -22,19 +22,20 @@
 
 import random
 
-string = input("Give me a 10 character string: ")
+user_str = input("Give me a 10 character string: ")
+new_str = ''
 
-if len(string) < 10:
+if len(user_str) < 10:
     print('String not long enough')
-elif len(string) > 10:
+elif len(user_str) > 10:
     print('String too long')
-elif len(string) == 10:
+else:
     print('Perfect string')
-    print(f'First character: {string[0]}, last character: {string[9]}')
-    for x in string:
-        newstring = '' + x
-        print(newstring)
-    l = list(string)
+    print(f'First character: {user_str[0]}, last character: {user_str[-1]}')
+    for x in user_str:
+        new_str += x
+        print(new_str)
+    l = list(user_str)
     random.shuffle(l)
-    newstring = ''.join(l)
-    print(newstring)
+    random_str = ''.join(l)
+    print(random_str)
