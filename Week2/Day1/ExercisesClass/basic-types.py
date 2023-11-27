@@ -1,86 +1,111 @@
-# GETTING STARTED
+# GETTING STARTED WITH PYTHON
 
 # STRINGS
-# print("Hello World in Python")
 
-# 1ST VALUE TYPE: STRING METHODS
-# print("Python is fun".lower())
+print("Hello World in Python")
 
-# print('hello world in HTML'.replace('HTML', 'Python')) #this method gets arguments
+#FIRST VALUE TYPE: STRING METHODS
+print("PYTHON is fun".lower())
 
-# 2ND VALUE TYPE: NUMBERS
-# A) integers: values not decimal
+print('hello world in HTML'.replace('HTML', 'Python')) #this method gets arguments
 
-# a = 5
-# b = 6
-# print(dir(a))
+#2ND VALUE TYPE: NUMBERS
+#A) integers: values not decimal
+
+a = -5
+b = 3
+
+print(type(a))
 
 # B) floats: 
 
-# 5.5
-# 2.77
+5.5
+2.77
 
-# print(5 + 7)
-# print(13 // 2)
-# print(15 % 2)
+print(5 + 7)
+print(13 // 2)
+print(15 % 2)
 
-# my_age = 33
-# future_years = 123879
+my_age = '33'
+future_years = 123879 
 
-# my_age_future = my_age + future_years
-# print(my_age_future)
+# my_age_f = my_age + future_years
+# print(my_age_f)
 
-# str_num1 = str(future_years)
-# str_num2 = str(my_age_future)
-# print(type(str_num1))
-# print("my age in " + str_num1 + " years will be " + str_num2)
+str_age = int(my_age)
+print(type(str_age)) # '123879'
 
-# print("Pythonic class \t" * 4)
+my_age_f = str_age + future_years
+print(my_age_f)
 
-# in_class = True
-# print(type(in_class))
+print("Pythonic class \t" * 4)
 
-# print('1st', 5 > 3)
-# print('2nd', 5 <= 3)
-# print('3rd', 5 >= 3)
-# print('4th', 5 == '5')
-# print('5th', 5 != 3)
+in_class = True
+print(type(in_class))
 
-# print('1st', 5 is '5')
-# print('2nd', 5 is not '5')
-# print('3nd', 5 is '5' and 3 == 3)
-# print('4th', 5 is '5' or 3 == 3)
-# print('5th', 5 is 5 or 3 != 3)
 
-# my_name = 'Nadia'
-# other_name = 'Juliana'
+print('1st', 5 > 3)
+print('2nd', 5 <= 3)
+# print('3th', 5 >= '3') WILL GIVE A TypeError
+print('4th' ,5 == '5')
+print('5th', 5 != 3)
+my_name = 'Maria'
+other_name = 'Maria'
+my_name = "Joana"
 
-# print (my_name is other_name)
+print('1th', my_name is other_name)
+print('2th', 5 is not '5')
+print('3th', 5 is '5' and 3 == 3)
+print('4th', 5 is 5 and 3 == 3)
+print('5th', 5 is 5 or 3 != 3)
 
-# bool_var = None
-# print(bool(bool_var))
+bool_var = False
 
-# my_age = 33
-# my_age += 2
-# print(my_age)
+print(bool(bool_var))
 
-# my_name = 'Juli'
-# my_name += 'ana'
-# print(my_name)
+my_age = 33
 
-# presentation = 'Hello, {} is my name and I am {} years old'.format(my_name, my_age)
+my_age += 2
+print(my_age)
 
-# presentation = f'Hello, {my_name} is my name and I am {my_age} years old'
-# print(presentation)
+my_name = 'Juli'
 
-# name = input('give me your name: ')
-age = int(input('give me your age: '))
-# in_5_years = age + 5
-# print(f'{name}, in 5 years you will be {in_5_years} years old')
+my_name += 'ana'
 
-if age >= 18:
-    print('You are an adult')
-elif 12 < age < 18:
-    print('You are a teenager')
+print(my_name)
+
+score = 0
+#code your game
+
+score += 1
+
+#FORMAT METHOD WAY
+presentation = 'Hello, {} is myname and I am {} years old'.format(my_name, my_age)
+
+print(presentation)
+
+#F STRING WAY
+presentation = f'''Hello, 
+{my_name} is myname and I am 
+{my_age} years old'''
+
+
+user_name = input('give me your name: ')
+user_age = int(input('give me your age: '))
+in_years = user_age + 5
+
+print(in_years)
+
+#CONDITIONALS
+
+#USE SIGN COMPARISON OPERATOR IN NUMBERS AND KEYWORD COMPARISON IN THE OTHER VALUE TYPES
+
+age = int(input("How old are you? "))
+print(f"You are {age} years old")
+
+if age >= 18: #if [condition]: [do the following indented code]
+    print('You are an adult') #will happen if the condition is True
+elif  18 > age > 12 :
+    print('You are not a teenager')
 else:
-    print('You are a child')
+    print('you are a child')

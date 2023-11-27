@@ -1,4 +1,5 @@
-#For example,  
+# Exercise 1
+# For example,  
 #my_name = "Frank"  this line creates a name variable type: string 
 #print("My name is {}".format(my_name))
 
@@ -26,3 +27,18 @@ print(f"There will be {cars_not_driven} empty cars today.")
 print(f"We can transport {carpool_capacity} people today.")
 print(f"We have {passengers} to carpool today.")
 print(f"We need to put about {average_passengers_per_car} in each car.")
+
+# Exercise 2
+# Ask the user for a number between 1 and 100
+# If the number is a multiple of three, print "Fizz"
+# If the number is a multiple of five, print "Buzz".
+# If the number is a multiple is a multiples of both three and five, print "FizzBuzz" instead.
+
+num = int(input('Give me a number between 1 and 100: '))
+
+if num % 3 == 0 and num % 5 == 0:
+    print('FizzBuzz')
+elif num % 3 == 0:
+    print('Fizz')
+elif num % 5 == 0:
+    print('Buzz')
