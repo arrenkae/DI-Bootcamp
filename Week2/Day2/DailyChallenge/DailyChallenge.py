@@ -12,7 +12,7 @@ while count <= length:
     multiples_list.append(number * count)
     count += 1
 
-# print(multiples_list)
+print(multiples_list)
 
 # Challenge 2
 # Write a program that asks a string to the user, and display a new string with any duplicate consecutive letters removed.
