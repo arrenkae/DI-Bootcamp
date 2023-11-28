@@ -42,9 +42,7 @@ import math
 # 14.Bonus: Instead of always generating 10 integers, let the amount of integers also be random! Generate a random positive integer no smaller than 50.
 # 15.Bonus: Will the code work when the number of random numbers is not equal to 10?
 
-import cmath
-
-numbers = [3, 47, 99, -80, 22, 97, 54, -23, 5, 7]
+numbers = [3, 47, 99, -80, 22, 97, 54, -23, 3, 3, 5, 7, 99]
 
 print(numbers)
 print(sorted(numbers, reverse=True))
@@ -52,4 +50,6 @@ print(sum(numbers))
 print([numbers[0], numbers[-1]])
 print([num for num in numbers if num > 50])
 print([num for num in numbers if num < 50])
-print([cmath.sqrt for num in numbers])
+print([num**2 for num in numbers if num >= 0])
+
+list_dedup = []
