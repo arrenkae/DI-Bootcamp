@@ -88,3 +88,31 @@
 # Then my output would show something like this:
 # Total throws: 8
 # Average throws to reach doubles: 2.67.
+
+import random
+
+def throw_dice():
+    roll = random.randint(1, 6)
+    return(roll)
+
+def throw_until_doubles():
+    rolls_total = 0
+    while True:
+        roll_1st = throw_dice()
+        roll_2nd = throw_dice()
+        rolls_total += 1
+        if roll_1st == roll_2nd:
+            break
+    return(rolls_total)
+    
+def main():
+    doubles_count = 0
+    throws_count = 0
+    while doubles_count <= 100:
+        throws_count += throw_until_doubles()
+        doubles_count += 1
+    average = round(throws_count/doubles_count, 2)
+    return(throws_count, average)
+
+throws, average = main()
+print(f'Total throws: {throws}\nAverage throws to reach doubles: {average}')

@@ -18,31 +18,31 @@
 # Now add this new data into your dictionary.
 # Make sure that if the user types any name that exists in the dictionary – including the name that he entered himself – the corresponding birthday is found and displayed.
 
-# birthdays = {
-#     'Nadia': '1990/04/03',
-#     'Ivan': '1984/09/24',
-#     'Natalia': '1970/08/04',
-#     'Oleg': '1964/04/02',
-#     'Jessie': '2008/02/02'
-# }
+birthdays = {
+    'Nadia': '1990/04/03',
+    'Ivan': '1984/09/24',
+    'Natalia': '1970/08/04',
+    'Oleg': '1964/04/02',
+    'Jessie': '2008/02/02'
+}
 
-# print('Hello! You can look up the birthday of one of those people:')
+print('Hello! You can look up the birthday of one of those people:')
 
-# for key in birthdays:
-#     print(key)
+for key in birthdays:
+    print(key)
 
-# user_name = input('But first, give me your name: ')
-# user_birthday = input('And your birthday (YYYY/MM/DD): ')
-# birthdays[user_name] = user_birthday
+user_name = input('But first, give me your name: ')
+user_birthday = input('And your birthday (YYYY/MM/DD): ')
+birthdays[user_name] = user_birthday
 
-# while True:
-#     name = input('Give me a name to look up a birthday: ')
-#     if name in birthdays:
-#         break
-#     else:
-#         print(f"Sorry, I don't have the birthday information for {name}")
+while True:
+    name = input('Give me a name to look up a birthday: ')
+    if name in birthdays:
+        break
+    else:
+        print(f"Sorry, I don't have the birthday information for {name}")
 
-# print(f"{name}'s birthday is on {birthdays[name]}")
+print(f"{name}'s birthday is on {birthdays[name]}")
 
 # Exercise 4: Fruit Shop
 # Using the dictionary below, each key-value pair represents an item and its price - print all the items and their prices in a sentence.
@@ -55,7 +55,6 @@ items = {
 }
 
 print(', '.join(f'{item} costs ${price}' for item, price in items.items()))
-
 
 # Using the dictionary below, each value are dictionaries containing both the price and the amount of items in stock -
 # write some code to calculate how much it would cost to buy everything in stock.
