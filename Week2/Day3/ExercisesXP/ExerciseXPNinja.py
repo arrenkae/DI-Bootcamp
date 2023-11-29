@@ -30,4 +30,6 @@ print(f'There are {count_no_i} car manufacturers that don\'t have letter "i" in 
 
 cars_list_2 = ["Honda","Volkswagen", "Toyota", "Ford Motor", "Honda", "Chevrolet", "Toyota"]
 cars_list_2_dedup = set(cars_list_2)
-print(cars_list_2_dedup)
+print(', '.join(cars_list_2_dedup))
+
+print([name[::-1] for name in sorted(cars_list_2_dedup)])
