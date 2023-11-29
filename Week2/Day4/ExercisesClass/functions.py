@@ -102,17 +102,31 @@
 # print(square(2))
 
 
-def country_info(country):
-    if country == 'Israel':
-        population = 936400
-        capital = 'Jerusalem'
-    if country == 'Russia':
-        population - 1434000000
-        capital = 'Moscow'
-    if country == 'Brazil':
-        population = 2143000000
-        capital = 'Brasilia'
-    return (population, capital)
+# def country_info(country):
+#     if country == 'Israel':
+#         population = 936400
+#         capital = 'Jerusalem'
+#     if country == 'Russia':
+#         population - 1434000000
+#         capital = 'Moscow'
+#     if country == 'Brazil':
+#         population = 2143000000
+#         capital = 'Brasilia'
+#     return (population, capital)
 
 
-print(country_info('Israel')[0])
+# print(country_info('Israel')[0])
+
+# ARGS AND KWARGS
+
+# def print_names(*args):
+#     for i in names:
+#         print(i)
+
+# print_names('Nadia', 'Juliana', 'Sveta')
+# print_names('David')
+
+def print_info(**kwargs):
+    print('address')
+
+print_info(name = 'Victor', age = '25', address = 'Holon')
