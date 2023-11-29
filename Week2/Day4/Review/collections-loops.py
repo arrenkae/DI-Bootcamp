@@ -31,7 +31,7 @@
 
 # SETS
 
-fruits = {'apple', 'banana', 'orange', 'lime', 'tomato'}
-vegetables = {'carrot', 'tomato', 'cucumber'}
+# fruits = {'apple', 'banana', 'orange', 'lime', 'tomato'}
+# vegetables = {'carrot', 'tomato', 'cucumber'}
 
-print(fruits.intersection(vegetables))
+# print(fruits.intersection(vegetables))
