@@ -10,61 +10,61 @@
 # Calculate. You may need to do a little more hard-coding here.
 # Return True if the person can retire, and False if he/she can’t.
 
-# def get_data():
-#     while True:
-#         gender = input('What is your gender (m/f)? ')
-#         if gender.lower() == 'm' or gender.lower() == 'f':
-#             break
-#         else:
-#             print('Please enter m or f')
-#     while True:
-#         birth_date = input('What is your date of birth? (yyyy/mm/dd) ')
-#         if birth_date.count('/') != 2:
-#             print('Please enter the date in a yyyy/mm/dd format')
-#         else:
-#             birth_date = birth_date.split('/')
-#             birth_year = int(birth_date[0])
-#             birth_month = int(birth_date[1])
-#             birth_day = int(birth_date[2])
-#             if birth_year in range(0, 2025) and birth_month in range(1, 13) and birth_day in range(1,32):
-#                 return(gender, birth_year, birth_month, birth_day)
-#             else:
-#                 print('Please enter a valid date')
+def get_data():
+    while True:
+        gender = input('What is your gender (m/f)? ')
+        if gender.lower() == 'm' or gender.lower() == 'f':
+            break
+        else:
+            print('Please enter m or f')
+    while True:
+        birth_date = input('What is your date of birth? (yyyy/mm/dd) ')
+        if birth_date.count('/') != 2:
+            print('Please enter the date in a yyyy/mm/dd format')
+        else:
+            birth_date = birth_date.split('/')
+            birth_year = int(birth_date[0])
+            birth_month = int(birth_date[1])
+            birth_day = int(birth_date[2])
+            if birth_year in range(0, 2025) and birth_month in range(1, 13) and birth_day in range(1,32):
+                return(gender, birth_year, birth_month, birth_day)
+            else:
+                print('Please enter a valid date')
 
-# user_gender, user_birth_year, user_birth_month, user_birth_day = get_data()
+user_gender, user_birth_year, user_birth_month, user_birth_day = get_data()
 
-# def get_age(year_current, month_current, day_current, year_birth, month_birth, day_birth):
-#     if month_birth >= month_current:
-#         if day_birth >= day_current:
-#             age = (year_current + 1) - year_birth
-#         else:
-#             age = year_current - year_birth
-#     else:
-#         age = year_current - year_birth
+def get_age(year_current, month_current, day_current, year_birth, month_birth, day_birth):
+    if month_birth >= month_current:
+        if day_birth >= day_current:
+            age = (year_current + 1) - year_birth
+        else:
+            age = year_current - year_birth
+    else:
+        age = year_current - year_birth
     
-#     return(age)
+    return(age)
 
-# user_age = get_age(2023, 11, 29, user_birth_year, user_birth_month, user_birth_day)
+user_age = get_age(2023, 11, 29, user_birth_year, user_birth_month, user_birth_day)
 
-# def can_retire(gender, age):
-#     if (gender == 'f' and age >= 62) or (gender == 'm' and age >= 67):
-#         retirement = True
-#     else:
-#         retirement = False
-#     return(retirement)
+def can_retire(gender, age):
+    if (gender == 'f' and age >= 62) or (gender == 'm' and age >= 67):
+        retirement = True
+    else:
+        retirement = False
+    return(retirement)
 
-# print(can_retire(user_gender, user_age))
+print(can_retire(user_gender, user_age))
 
 # Exercise 2 : Sum
 # Write a function that accepts one parameter (an int: X) and returns the value of X+XX+XXX+XXXX.
 # Example:
 # If X=3, the output when calling our function should be 3702 (3 + 33 + 333 + 3333)
 
-# def sum(x:int) -> int:
-#     result = x + int(str(x)*2) + int(str(x)*3) + int(str(x)*4)
-#     return(result)
+def sum(x:int) -> int:
+    result = x + int(str(x)*2) + int(str(x)*3) + int(str(x)*4)
+    return(result)
 
-# print(sum(3))
+print(sum(3))
 
 # Exercise 3 : Double Dice
 # Create a function that will simulate the rolling of a dice. Call it throw_dice. It should return an integer between 1 and 6.
