@@ -4,7 +4,6 @@
 # When all 9 squares are full, the game is over. If no player has 3 marks in a row, the game ends in a tie.
 
 def display_board(board):
-    print('TIC TAC TOE')
     print('TIC TAC TOE\n*****************')
     for row in board:
         display_row = ''
