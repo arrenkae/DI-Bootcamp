@@ -1,18 +1,21 @@
-my_function = lambda s: s.upper()
+# my_function = lambda s: s.upper()
 
-fruits = ['apple', 'banana', 'pear', 'apricot', 'orange']
+# fruits = ['apple', 'banana', 'pear', 'apricot', 'orange']
 
-map_result = map(lambda s: s.upper(), fruits)
+# map_result = map(lambda s: s.upper(), fruits)
 
-print(dict(zip(map_result, fruits)))
+# print(dict(zip(map_result, fruits)))
 
-filter_obj = filter(lambda s: s[0] == 'A', fruits)
-print(list(filter_obj))
+# filter_obj = filter(lambda s: s[0] == 'A', fruits)
+# print(list(filter_obj))
 
-nums_list = [1,2,5,8,7,9,10]
+# nums_list = [1,2,5,8,7,9,10]
 
-def add(n1,n2):
-    result = n1 + n2
+# def add(n1,n2):
+#     result = n1 + n2
 
-reduced = reduce(lambda n1, n2: n1+n2, nums_list)
-print(sum(nums))
+# reduced = reduce(lambda n1, n2: n1+n2, nums_list)
+# print(sum(nums))
+
+people = ["Rick", "Morty", "Beth", "Jerry", "Snowball"]
+say_hello = list(map(lambda name: print(f'Hello, {name}'), (list(filter(lambda name: len(name) <= 4, people)))))
