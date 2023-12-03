@@ -8,8 +8,9 @@
 user_word = input('Give me a word: ')
 word_dict = {}
 
-for letter in user_word:
+for index, letter in enumerate(user_word):
     if letter not in word_dict:
+        
         index_list = [i for i, j in enumerate(user_word) if j == letter]
         word_dict[letter] = index_list
 
