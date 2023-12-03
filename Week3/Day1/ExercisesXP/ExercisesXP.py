@@ -1,100 +1,100 @@
-# # Exercise 1: Cats
-# # Using this class
-# # class Cat:
-# #     def __init__(self, cat_name, cat_age):
-# #         self.name = cat_name
-# #         self.age = cat_age
-# # Instantiate three Cat objects using the code provided above.
-# # Outside of the class, create a function that finds the oldest cat and returns the cat.
-# # Print the following string: “The oldest cat is <cat_name>, and is <cat_age> years old.”. Use the function previously created.
-
+# Exercise 1: Cats
+# Using this class
 # class Cat:
-
 #     def __init__(self, cat_name, cat_age):
 #         self.name = cat_name
 #         self.age = cat_age
+# Instantiate three Cat objects using the code provided above.
+# Outside of the class, create a function that finds the oldest cat and returns the cat.
+# Print the following string: “The oldest cat is <cat_name>, and is <cat_age> years old.”. Use the function previously created.
 
-# my_cat = Cat('Jessie', 5)
-# parents_cat = Cat('Sprat', 4)
-# friends_cat = Cat('Mint', 3)
+class Cat:
 
-# def oldest_cat(*args):
-#     oldest = args[0]
-#     for cat in args:
-#         if cat.age > oldest.age:
-#             oldest = cat
-#     return(oldest)
+    def __init__(self, cat_name, cat_age):
+        self.name = cat_name
+        self.age = cat_age
 
-# print(f'The oldest cat is {oldest_cat(parents_cat, friends_cat, my_cat).name}, and it is {oldest_cat(parents_cat, friends_cat, my_cat).age} years old')
+my_cat = Cat('Jessie', 5)
+parents_cat = Cat('Sprat', 4)
+friends_cat = Cat('Mint', 3)
 
-# # Exercise 2 : Dogs
-# # Create a class called Dog.
-# # In this class, create an __init__ method that takes two parameters : name and height. This function instantiates two attributes, which values are the parameters.
-# # Create a method called bark that prints the following string “<dog_name> goes woof!”.
-# # Create a method called jump that prints the following string “<dog_name> jumps <x> cm high!”. x is the height*2.
-# # Outside of the class, create an object called davids_dog. His dog’s name is “Rex” and his height is 50cm.
-# # Print the details of his dog (ie. name and height) and call the methods bark and jump.
-# # Create an object called sarahs_dog. Her dog’s name is “Teacup” and his height is 20cm.
-# # Print the details of her dog (ie. name and height) and call the methods bark and jump.
-# # Create an if statement outside of the class to check which dog is bigger. Print the name of the bigger dog.
+def oldest_cat(*args):
+    oldest = args[0]
+    for cat in args:
+        if cat.age > oldest.age:
+            oldest = cat
+    return(oldest)
 
-# class Dog:
+print(f'The oldest cat is {oldest_cat(parents_cat, friends_cat, my_cat).name}, and it is {oldest_cat(parents_cat, friends_cat, my_cat).age} years old')
 
-#     def __init__(self, name, height):
-#         self.name = name
-#         self.height = height
+# Exercise 2 : Dogs
+# Create a class called Dog.
+# In this class, create an __init__ method that takes two parameters : name and height. This function instantiates two attributes, which values are the parameters.
+# Create a method called bark that prints the following string “<dog_name> goes woof!”.
+# Create a method called jump that prints the following string “<dog_name> jumps <x> cm high!”. x is the height*2.
+# Outside of the class, create an object called davids_dog. His dog’s name is “Rex” and his height is 50cm.
+# Print the details of his dog (ie. name and height) and call the methods bark and jump.
+# Create an object called sarahs_dog. Her dog’s name is “Teacup” and his height is 20cm.
+# Print the details of her dog (ie. name and height) and call the methods bark and jump.
+# Create an if statement outside of the class to check which dog is bigger. Print the name of the bigger dog.
 
-#     def bark(self):
-#         print(f'{self.name} goes woof!')
+class Dog:
 
-#     def jump(self):
-#         print(f'{self.name} jumps {self.height * 2} cm high!')
+    def __init__(self, name, height):
+        self.name = name
+        self.height = height
 
+    def bark(self):
+        print(f'{self.name} goes woof!')
 
-# davids_dog = Dog('Rex', 50)
-
-# print(davids_dog.name)
-# print(davids_dog.height)
-# davids_dog.bark()
-# davids_dog.jump()
-
-# sarahs_dog = Dog('Teacup', 20)
-
-# print(sarahs_dog.name)
-# print(sarahs_dog.height)
-# sarahs_dog.bark()
-# sarahs_dog.jump()
-
-# bigger_dog = davids_dog.name if davids_dog.height > sarahs_dog.height else sarahs_dog.name
-
-# print(bigger_dog)
-
-# # Exercise 3 : Who’s the song producer?
-# # Define a class called Song, it will show the lyrics of a song.
-# # Its __init__() method should have two arguments: self and lyrics (a list).
-# # Inside your class create a method called sing_me_a_song that prints each element of lyrics on its own line.
-# # Create an object, for example:
-
-# # >>> stairway= Song(["There’s a lady who's sure","all that glitters is gold", "and she’s buying a stairway to heaven"])
-
-# # Then, call the sing_me_a_song method. The output should be:
-
-# # >>> There’s a lady who's sure
-# # >>> all that glitters is gold
-# # >>> and she’s buying a stairway to heaven
-
-# class Song:
-
-#     def __init__(self, lyrics:list):
-#         self.lyrics = lyrics
-
-#     def sing_me_a_song(self):
-#         for line in self.lyrics:
-#             print(line)
+    def jump(self):
+        print(f'{self.name} jumps {self.height * 2} cm high!')
 
 
-# stairway = Song(["There's a lady who's sure","all that glitters is gold", "and she's buying a stairway to heaven"])
-# stairway.sing_me_a_song()
+davids_dog = Dog('Rex', 50)
+
+print(davids_dog.name)
+print(davids_dog.height)
+davids_dog.bark()
+davids_dog.jump()
+
+sarahs_dog = Dog('Teacup', 20)
+
+print(sarahs_dog.name)
+print(sarahs_dog.height)
+sarahs_dog.bark()
+sarahs_dog.jump()
+
+bigger_dog = davids_dog.name if davids_dog.height > sarahs_dog.height else sarahs_dog.name
+
+print(bigger_dog)
+
+# Exercise 3 : Who’s the song producer?
+# Define a class called Song, it will show the lyrics of a song.
+# Its __init__() method should have two arguments: self and lyrics (a list).
+# Inside your class create a method called sing_me_a_song that prints each element of lyrics on its own line.
+# Create an object, for example:
+
+# >>> stairway= Song(["There’s a lady who's sure","all that glitters is gold", "and she’s buying a stairway to heaven"])
+
+# Then, call the sing_me_a_song method. The output should be:
+
+# >>> There’s a lady who's sure
+# >>> all that glitters is gold
+# >>> and she’s buying a stairway to heaven
+
+class Song:
+
+    def __init__(self, lyrics:list):
+        self.lyrics = lyrics
+
+    def sing_me_a_song(self):
+        for line in self.lyrics:
+            print(line)
+
+
+stairway = Song(["There's a lady who's sure","all that glitters is gold", "and she's buying a stairway to heaven"])
+stairway.sing_me_a_song()
 
 # Exercise 4 : Afternoon at the Zoo
 # Create a class called Zoo.
