@@ -44,42 +44,42 @@ class Pagination:
         return [item for item in self.items[start:end]]
     
     def showPage(self):
-        return(current_page + 1)
+        return(f'Page {self.current_page + 1}')
 
     def prevPage(self):
         if self.current_page != 0:
             self.current_page -= 1
-            print(f'Going to page {self.current_page + 1}')
+            print(f'Going to {self.showPage()}')
         else:
             raise Exception('Already at the first page')
 
     def nextPage(self):
         if self.current_page != self.last_page:
             self.current_page += 1
-            print(f'Going to page {self.current_page + 1}')
+            print(f'Going to {self.showPage()}')
         else:
             raise Exception('Already at the last page')
 
     def firstPage(self):
         if self.current_page != 0:
             self.current_page = 0
-            print('Going to the first page')
+            print(f'Going to {self.showPage()}')
         else:
             raise Exception('Already at the first page')
 
     def lastPage(self):
         if self.current_page != self.last_page:
             self.current_page = self.last_page
-            print('Going to the last page')
+            print(f'Going to {self.showPage()}')
         else:
             raise Exception('Already at the last page')
 
     def goToPage(self, num):
-        if num > self.last_page or num < 0:
+        if num-1 > self.last_page or num < 1:
             raise Exception('There is no such page!')
         else:
-            self.current_page = num
-            print(f'Going to page {self.current_page + 1}')
+            self.current_page = num-1
+            print(f'Going to {self.showPage()}')
 
 
 alphabetList = list("abcdefghijklmnopqrstuvwxyz")
@@ -111,6 +111,6 @@ p.firstPage()
 
 print(p.getVisibleItems())
 
-p.goToPage(6)
+p.goToPage(4)
 
 print(p.getVisibleItems())
