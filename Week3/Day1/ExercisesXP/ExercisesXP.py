@@ -128,17 +128,19 @@ class Zoo:
         self.name = zoo_name
         self.animals = []
 
-    def add_animal(self, new_animal):
-        if new_animal not in self.animals:
-            self.animals.append(new_animal)
+    def add_animal(self, *new_animal):
+        for animal in new_animal:
+            if animal not in self.animals:
+                self.animals.append(animal)
 
     def get_animals(self):
         for animal in self.animals:
             print(animal)
 
-    def sell_animal(self, animal_sold):
-        if animal_sold in self.animals:
-            self.animals.remove(animal_sold)
+    def sell_animal(self, *animal_sold):
+        for animal in animal_sold:
+            if animal in self.animals:
+                self.animals.remove(animal)
     
     def sort_animals(self):
         animals_sorted = sorted(self.animals)
@@ -161,17 +163,11 @@ class Zoo:
 
 ramat_gan_safari = Zoo('Ramat Gan Safari')
 
-animals_to_add = ['Giraffe', 'Cat', 'Zebra', 'Dog', 'Baboon', 'Elephant', 'Mouse', 'Zebra', 'Cat', 'Bear', 'Cougar', 'Ape', 'Emu', 'Horse']
-
-for animal in animals_to_add:
-    ramat_gan_safari.add_animal(animal)
+ramat_gan_safari.add_animal('Giraffe', 'Cat', 'Zebra', 'Dog', 'Baboon', 'Elephant', 'Zebra', 'Cat', 'Bear', 'Cougar', 'Ape', 'Emu', 'Horse')
 
 ramat_gan_safari.get_animals()
 
-animals_to_sell = ['Mouse', 'Dog', 'Horse', 'Giraffe']
-
-for animal in animals_to_sell:
-    ramat_gan_safari.sell_animal(animal)
+ramat_gan_safari.sell_animal('Mouse', 'Dog', 'Horse', 'Giraffe')
 
 ramat_gan_safari.get_animals()
 
