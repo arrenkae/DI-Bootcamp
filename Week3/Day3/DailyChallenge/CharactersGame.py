@@ -55,7 +55,7 @@ class Character:
             print(f'{other.name} is already dead!')
 
     def __repr__(self):
-        return f'{self.name}\nLife: {self.life}\nAttack: {self.attack}'
+        return f'| {self.name}\n| Life: {self.life}\n| Attack: {self.attack}'
 
 class Druid(Character):
 
@@ -75,7 +75,6 @@ class Druid(Character):
         damage = int(0.75*self.life + 0.75*self.attack)
         super().basic_attack(other, 'unleashes the wrath of nature at', damage)
         
-
 class Warrior(Character):
 
     def __init__(self, name, life=20, attack=10, is_alive=True):
