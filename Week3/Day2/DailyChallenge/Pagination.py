@@ -34,53 +34,44 @@ class Pagination:
 
     def __init__(self, items=None, pageSize=10):
         self.items = items
-        self.pageSize = pageSize
-        self.current_page = 0
-        self.last_page = len(self.items) // self.pageSize
+        self.pageSize = int(pageSize)
+        self.currentpage = 1
+        self.totalpages = -(-len(self.items) // self.pageSize) # rounding up
 
     def getVisibleItems(self):
-        start = self.current_page*self.pageSize
-        end = (self.current_page+1)*self.pageSize if self.current_page < self.last_page else len(self.items)
-        return [item for item in self.items[start:end]]
-    
-    def showPage(self):
-        return(f'Page {self.current_page + 1}')
+        end = self.currentpage*self.pageSize if self.currentpage <= self.totalpages else len(self.items)
+        return [item for item in self.items[end-self.pageSize:end]]
 
     def prevPage(self):
-        if self.current_page != 0:
-            self.current_page -= 1
-            print(f'Going to {self.showPage()}')
+        if self.currentpage > 1:
+            self.currentpage -= 1
         else:
-            raise Exception('Already at the first page')
+            self.currentpage = self.totalpages
+        return self
 
     def nextPage(self):
-        if self.current_page != self.last_page:
-            self.current_page += 1
-            print(f'Going to {self.showPage()}')
+        if self.currentpage < self.totalpages:
+            self.currentpage += 1
         else:
-            raise Exception('Already at the last page')
+            self.currentpage = 1
+        return self
 
     def firstPage(self):
-        if self.current_page != 0:
-            self.current_page = 0
-            print(f'Going to {self.showPage()}')
-        else:
-            raise Exception('Already at the first page')
+        self.currentpage = 1
+        return self
 
     def lastPage(self):
-        if self.current_page != self.last_page:
-            self.current_page = self.last_page
-            print(f'Going to {self.showPage()}')
-        else:
-            raise Exception('Already at the last page')
+        self.currentpage = self.totalpages
+        return self
 
     def goToPage(self, num):
-        if num-1 > self.last_page or num < 1:
-            raise Exception('There is no such page!')
+        if num > self.totalpages:
+            self.currentpage = self.totalpages
+        elif num < 1:
+            self.currentpage = 1
         else:
-            self.current_page = num-1
-            print(f'Going to {self.showPage()}')
-
+            self.currentpage = num
+        return self
 
 alphabetList = list("abcdefghijklmnopqrstuvwxyz")
 
@@ -93,13 +84,9 @@ p.nextPage()
 print(p.getVisibleItems())
 
 p.nextPage()
-
-print(p.getVisibleItems())
-
-p.nextPage()
 p.nextPage()
 p.prevPage()
-p.prevPage()
+p.nextPage()
 
 print(p.getVisibleItems())
 
@@ -111,6 +98,19 @@ p.firstPage()
 
 print(p.getVisibleItems())
 
-p.goToPage(4)
+p.goToPage(5)
 
 print(p.getVisibleItems())
+
+p.nextPage().nextPage()
+
+print(p.getVisibleItems())
+
+p.nextPage()
+
+print(p.getVisibleItems())
+
+p.prevPage()
+
+print(p.getVisibleItems())
+
