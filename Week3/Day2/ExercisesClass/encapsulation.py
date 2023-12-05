@@ -43,3 +43,5 @@ account3 = AtmAccount('Leo Di Caprio')
 print(account1._AtmAccount__account_num)
 print(account2._AtmAccount__account_num)
 print(account3._AtmAccount__account_num)
+
+print(AtmAccount.available_acc_num)
