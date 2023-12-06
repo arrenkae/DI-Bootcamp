@@ -14,10 +14,41 @@
 # >>> c1 = Currency('dollar', 5)
 # >>> c2 = Currency('dollar', 10)
 # >>> c3 = Currency('shekel', 1)
+# >>> c4 = Currency('shekel', 12 currencies which don’t share the same label you should raise an error.
+
+# >>> c1 = Currency(' : When adding 2 currencies which don’t share the same label you should raise an error.
+
+# >>> c1 = Currency('dollar', 5)
+# >>> c1 = Currency('dollar', 5)
+# >>> c2 = Currency('dollar', 10)
+# >>> c3 = Currency('shekel', 1)
+# >>> c4 = Currency('shekel'
+# >>> c2 = Currency('dollar', 10)
+# >>> c3 = Currency('shekel', 1)
+# >>> c4 = Currency('shekel'
+# >>> c1 = Currency('dollar', 5)
+# >>> c2 = Currency('dollar', 10)
+# >>> c3 = Currency('shekel', 1)
+# >>> c4 = Currency('shekel', 12 currencies which don’t share the same label you should raise an error.
+
+# >>> c1 = Currency('dollar', 5)
+# >>> c2 = Currency('dollar', 10)
+# >>> c3 = Currency('shekel', 1)
 # >>> c4 = Currency('shekel', 10)
 
 # >>> str(c1)
-# '5 dollars'
+# '5 dollars'p
+
+# >>> str(c1)
+# '5 dollars'z2 currencies which don’t share the same label you should raise an error.
+
+# >>> c1 = Currency('dollar', 5)
+# >>> c2 = Currency('dollar', 10)
+# >>> c3 = Currency('shekel', 1)
+# >>> c4 = Currency('shekel', 10)
+
+# >>> str(c1)
+# '5 dollars'p
 
 # >>> int(c1)
 # 5
