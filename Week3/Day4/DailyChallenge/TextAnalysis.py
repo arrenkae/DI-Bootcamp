@@ -57,7 +57,7 @@ class Text:
     def wordcount(self):
         words = []
         for word in self.text.lower().split():
-            word_clean = word.lower().strip(Text.special_chars)
+            word_clean = word.lower().strip(Text.special_chars).replace("'s",'')
             if word_clean not in Text.stop_words and len(word_clean) > 1:
                 words.append(word_clean)
         wordcount = {}
