@@ -38,13 +38,12 @@
 # Note: Feel free to implement/create any attribute, method or function needed to make this work, be creative :)
 
 import os
-import re
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 class Text:
 
-    STOP_WORDS = ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've", "you'll", "you'd", 'your', 'yours', 'yourself', 'yourselves', 'he', "he'd",
+    stop_words = ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've", "you'll", "you'd", 'your', 'yours', 'yourself', 'yourselves', 'he', "he'd",
         'him', 'his', 'himself', 'she', "she'd", "she's", 'her', 'hers', 'herself', 'it', "it's", 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves', 'what', 'which',
         'who', 'whom', 'this', 'that', "that'll", 'these', 'those', 'am', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'having', 'do', 'does', 'did',
         'doing', 'a', 'an', 'the', 'and', 'but', 'if', 'or', 'because', 'as', 'until', 'while', 'of', 'at', 'by', 'for', 'with', 'about', 'against', 'between', 'into', 'through',
@@ -53,7 +52,7 @@ class Text:
         'very', 's', 't', 'can', 'will', 'just', 'don', "don't", 'should', "should've", 'now', 'd', 'll', 'm', 'o', 're', 've', 'y', 'ain', 'aren', "aren't", 'couldn', "couldn't",
         'didn', "didn't", 'doesn', "doesn't", 'hadn', "hadn't", 'hasn', "hasn't", 'haven', "haven't", 'isn', "isn't", 'ma', 'mightn', "mightn't", 'mustn', "mustn't", 'needn',
         "needn't", 'shan', "shan't", 'shouldn', "shouldn't", 'wasn', "wasn't", 'weren', "weren't", 'won', "won't", 'wouldn', "wouldn't", 'would', 'ii', 'iii', 'iv']
-    SPECIAL_CHARS = '''!()-—[]{};:'"\,<>./?@#$%^&*_~1234567890♦'''
+    special_chars = '''!()-—[]{};:'"\,<>./?@#$%^&*_~1234567890♦'''
 
     def __init__(self, text):
         self.text = text
@@ -62,8 +61,8 @@ class Text:
     def wordcount(self):
         words = []
         for word in self.text.lower().split():
-            word_clean = word.lower().strip(Text.SPECIAL_CHARS).replace("'s",'')
-            if word_clean not in Text.STOP_WORDS and len(word_clean) > 1:
+            word_clean = word.lower().strip(Text.special_chars).replace("'s",'')
+            if word_clean not in Text.stop_words and len(word_clean) > 1:
                 words.append(word_clean)
         wordcount = {}
         for word in words:
@@ -88,9 +87,6 @@ class Text:
     def unique_words(self):
         return set(self.wordcount.keys())
 
-    def no_special_chars(self):
-        return (r'([^\s\w]|_)+', '', self.text)
-
 text1 = Text('A good book would sometimes cost as much as a good house (sometimes).')
 
 print(text1.frequency('good'))
@@ -99,8 +95,6 @@ print(text1.unique_words())
 
 stranger = Text.from_file('the_stranger.txt')
 
-# print(stranger.unique_words())
-# print(stranger.most_common())
-# print(stranger.frequency('stranger'))
-
-print(stranger.no_special_chars())
+print(stranger.unique_words())
+print(stranger.most_common())
+print(stranger.frequency('stranger'))
