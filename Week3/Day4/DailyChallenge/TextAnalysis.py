@@ -81,7 +81,6 @@ class Text:
         return [word for word in self.wordcount if self.wordcount[word] == max_count]
 
     def unique_words(self):
-        
         return set(self.wordcount.keys())
 
 text1 = Text('A good book would sometimes cost as much as a good house (sometimes).')
