@@ -31,6 +31,6 @@ SELECT * FROM students WHERE first_name like '%a'
 
 SELECT * FROM students WHERE first_name like '%a_'
 
-SELECT * FROM students WHERE id = 2 OR id = 3
+SELECT * FROM students WHERE id in (2, 3)
 
 SELECT * FROM students WHERE birth_date >= '2000-01-01'
