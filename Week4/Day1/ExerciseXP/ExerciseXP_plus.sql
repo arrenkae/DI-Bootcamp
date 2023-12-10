@@ -5,7 +5,7 @@ CREATE TABLE students (
 	birth_date date NOT NULL
 );
 
-SET datestyle TO European;
+SET datestyle TO 'European';
 
 INSERT INTO students (first_name, last_name, birth_date )
 VALUES ('Marc', 'Benichou', '02/11/1998'),
