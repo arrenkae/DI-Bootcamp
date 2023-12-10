@@ -23,6 +23,19 @@ VALUES ('Leonardo','DiCaprio','11/11/1974', 1),
 ('Morgan','Freeman','01/06/1937', 1),
 ('Dwayne','Johnson','02/05/1972', 0);
 
+SELECT * FROM actors LIMIT 4;
+
+SELECT * FROM actors ORDER BY last_name DESC
+LIMIT 4;
+
+SELECT * FROM actors WHERE first_name LIKE '%e%';
+
+SELECT * FROM actors WHERE number_oscars >= 5;
+
+UPDATE actors SET first_name='Maty' WHERE first_name='Matt' AND last_name='Damon';
+
+UPDATE actors SET number_oscars=4 WHERE first_name='George' AND last_name='Clooney';
+
 SELECT * FROM actors;
 
 SELECT COUNT(actor_id)
