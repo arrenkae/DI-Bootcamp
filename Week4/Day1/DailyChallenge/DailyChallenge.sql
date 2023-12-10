@@ -6,6 +6,8 @@ CREATE TABLE actors(
 	number_oscars SMALLINT NOT NULL
 );
 
+SET DateStyle TO 'European';
+
 INSERT INTO actors (first_name, last_name, age, number_oscars)
 VALUES('Matt','Damon','08/10/1970', 5);
 
@@ -36,7 +38,7 @@ UPDATE actors SET first_name='Maty' WHERE first_name='Matt' AND last_name='Damon
 
 UPDATE actors SET number_oscars=4 WHERE first_name='George' AND last_name='Clooney';
 
-SELECT * FROM actors;
+SELECT * FROM actors ORDER BY actor_id;
 
 SELECT COUNT(actor_id)
 FROM actors;

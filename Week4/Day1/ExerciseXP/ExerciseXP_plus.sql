@@ -1,17 +1,19 @@
 CREATE TABLE students (
 	id serial PRIMARY KEY,
-	last_name varchar(255) NOT NULL,
 	first_name varchar(255) NOT NULL,
+	last_name varchar(255) NOT NULL,
 	birth_date date NOT NULL
 );
 
+SET datestyle TO European;
+
 INSERT INTO students (first_name, last_name, birth_date )
-VALUES ('Marc', 'Benichou', '1998-11-02'),
-('Yoan', 'Cohen', '2010-12-03'),
-('Lea', 'Benichou', '1987-07-27'),
-('Amelia', 'Dux', '1996-04-07'),
-('David', 'Grez', '2003-06-14'),
-('Omer', 'Simpson', '1980-10-03');
+VALUES ('Marc', 'Benichou', '02/11/1998'),
+('Yoan', 'Cohen', '03/12/2010'),
+('Lea', 'Benichou', '27/07/1987'),
+('Amelia', 'Dux', '07/04/1996'),
+('David', 'Grez', '14/06/2003'),
+('Omer', 'Simpson', '03/10/1980');
 
 SELECT * FROM students;
 
@@ -33,4 +35,4 @@ SELECT * FROM students WHERE first_name like '%a_';
 
 SELECT * FROM students WHERE id in (2, 3);
 
-SELECT * FROM students WHERE birth_date >= '2000-01-01'
+SELECT * FROM students WHERE birth_date >= '01/01/2001';

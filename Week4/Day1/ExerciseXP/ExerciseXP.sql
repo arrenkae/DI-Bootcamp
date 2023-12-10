@@ -32,4 +32,4 @@ SELECT * FROM customers WHERE lastname = 'Smith';
 
 SELECT * FROM customers WHERE lastname = 'Jones';
 
-SELECT * FROM customers WHERE lastname != 'Scott'
+SELECT * FROM customers WHERE lastname != 'Scott';
