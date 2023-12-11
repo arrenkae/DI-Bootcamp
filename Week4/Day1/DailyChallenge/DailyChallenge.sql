@@ -6,24 +6,22 @@ CREATE TABLE actors(
 	number_oscars SMALLINT NOT NULL
 );
 
-SET DateStyle TO 'European';
+INSERT INTO actors (first_name, last_name, age, number_oscars)
+VALUES('Matt','Damon','1970-10-08', 5);
 
 INSERT INTO actors (first_name, last_name, age, number_oscars)
-VALUES('Matt','Damon','08/10/1970', 5);
+VALUES('George','Clooney','1961-05-06', 2);
 
 INSERT INTO actors (first_name, last_name, age, number_oscars)
-VALUES('George','Clooney','06/05/1961', 2);
+VALUES('Meryl','Streep','1949-06-22', 3);
 
 INSERT INTO actors (first_name, last_name, age, number_oscars)
-VALUES('Meryl','Streep','22/06/1949', 3);
+VALUES('Judi','Dench','1934-12-09', 1);
 
 INSERT INTO actors (first_name, last_name, age, number_oscars)
-VALUES('Judi','Dench','09/12/1934', 1);
-
-INSERT INTO actors (first_name, last_name, age, number_oscars)
-VALUES ('Leonardo','DiCaprio','11/11/1974', 1),
-('Morgan','Freeman','01/06/1937', 1),
-('Dwayne','Johnson','02/05/1972', 0);
+VALUES ('Leonardo','DiCaprio','1974-11-11', 1),
+('Morgan','Freeman','1937-06-01', 1),
+('Dwayne','Johnson','1972-05-02', 0);
 
 SELECT * FROM actors LIMIT 4;
 
