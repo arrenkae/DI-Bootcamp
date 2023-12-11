@@ -120,5 +120,18 @@ UPDATE products SET name = 'iPhone13', price=1000 WHERE id = 2;
 
 DELETE FROM products WHERE id = 2;
 
+-- Aggregate functions
+-- AVG
+-- COUNT
+-- MAX / MIN
+-- SUM
 
+SELECT COUNT(1) FROM products;
 
+SELECT SUM(price) FROM products;
+
+SELECT MIN(price) FROM products;
+
+SELECT AVG(price) FROM products;
+
+SELECT LENGTH(name), name, price FROM products WHERE LENGTH(name) > 4;
