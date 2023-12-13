@@ -45,11 +45,8 @@ class MenuManager:
     def all_items(self):
         return self.db_connect("SELECT * FROM menu_items")
 
-mymenu = MenuManager()
+# mymenu = MenuManager()
 
 # print(mymenu.get_by_name('Ramen'))
+# items = mymenu.all_items()
 
-items = mymenu.all_items()
-
-for item in items:
-    print(item)
