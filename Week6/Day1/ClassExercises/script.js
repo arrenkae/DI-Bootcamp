@@ -355,21 +355,25 @@
 //     console.log("The position is " + i);
 // }
 
-let names = ["john", "sarah", 23, "Rudolph", 34];
+// let names = ["john", "sarah", 23, "Rudolph", 34];
 
-for (let i=0; i < names.length; i++){
-    if (typeof names[i] == "string") {
-        if (names[i][0].toUpperCase() != names[i][0]){
-            names[i] = names[i].replace(names[i][0], names[i][0].toUpperCase());
-            console.log(names[i])
-        }
-    }
-}
+// for (let i=0; i < names.length; i++){
+//     if (typeof names[i] == "string") {
+//         if (names[i][0].toUpperCase() != names[i][0]){
+//             names[i] = names[i].replace(names[i][0], names[i][0].toUpperCase());
+//             console.log(names[i])
+//         }
+//     }
+// }
 
-for (let name of names){
-    if (typeof name == "string") {
-        console.log(name);
-    } else {
-        break
-    }
-}
+// for (let name of names){
+//     if (typeof name == "string") {
+//         console.log(name);
+//     } else {
+//         break
+//     }
+// }
+
+// let and const
+
+// let -> when we need to re-define the variable in the future
