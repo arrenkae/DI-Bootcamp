@@ -154,24 +154,73 @@
 
 // console.log(secondLi.closest("#firstList"));
 
-const div1 = document.querySelector("#container");
-console.log(div1.innerText);
+// const div1 = document.querySelector("#container");
+// console.log(div1.innerText);
 
-const div2 = document.getElementById("container");
-console.log(div2.innerText);
+// const div2 = document.getElementById("container");
+// console.log(div2.innerText);
 
-const ulNodes1 = document.querySelectorAll("ul");
-for (let ul of ulNodes1) {
-    for (let li of ul.children) {
-        console.log(li.innerText);
+// const ulNodes1 = document.querySelectorAll("ul");
+// for (let ul of ulNodes1) {
+//     for (let li of ul.children) {
+//         console.log(li.innerText);
+//     }
+//     console.log(ul.children[0].innerText);
+// }
+
+// const ulNodes2 = document.querySelectorAll(".list");
+// for (let ul of ulNodes2) {
+//     for (let li of ul.children) {
+//         console.log(li.innerText);
+//     }
+//     console.log(ul.children[0].innerText);
+// }
+
+// forms
+
+// const forms = document.forms;
+// console.log(forms);
+// console.log(forms[0]);s
+// console.log(forms.personform);
+
+// const dogform = document.forms.dogform;
+// const personform = document.forms.personform;
+
+// console.log(dogform);
+// console.log(personform.elements.age.value);
+
+// const form = document.forms[0];
+// console.log(form.elements.age);
+
+// const form = document.forms.frm;
+// console.log(form.elements.comments.value);
+
+// has a value but not innerHTML
+
+// const select = document.querySelector("#fruits");
+// console.log(select.options);
+// console.log(select.value);
+// console.log(select.selectedIndex);
+
+
+// let select = document.getElementById("school-type");
+// console.log(select.options[1].value);
+// let work = document.createElement("option");
+// work.value = "Work"
+// console.log(work)
+
+function selectEdit() {
+    let select = document.getElementById("school-type");
+    secondOption = select.options[1].value;
+    let work = new Option("Work", "work")
+    select.append(work);
+    let primSchool = new Option("Primary School", "primary school")
+    select.prepend(primSchool);
+    for (let i = 0; select.options.length; i++) {
+        if (selectEdit.options[i].value=="college") {
+            select.selectedIndex = i;
+        }
     }
-    console.log(ul.children[0].innerText);
 }
 
-const ulNodes2 = document.querySelectorAll(".list");
-for (let ul of ulNodes2) {
-    for (let li of ul.children) {
-        console.log(li.innerText);
-    }
-    console.log(ul.children[0].innerText);
-}
+selectEdit();
