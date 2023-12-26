@@ -20,8 +20,8 @@
 const form = document.querySelector("form");
 console.log(form);
 
-const fname = document.getElementById("fname")
-const lname = document.getElementById("lname")
+const fnameInput = document.getElementById("fname")
+const lnameInput = document.getElementById("lname")
 const submit = document.getElementById("submit")
 
 console.log(fname);
@@ -30,16 +30,16 @@ console.log(submit);
 
 function submitValues(e) {
     e.preventDefault();
-    if (fname.value === "" || lname.value === "") {
+    if (fnameInput.value === "" || lnameInput.value === "") {
         alert("Please fill all the fields!");
     } else {
         let usersAnswer = document.querySelector(".usersAnswer");
-        let fnameInput = document.createElement("li");
-        fnameInput.innerText = fname.value;
-        let lnameInput = document.createElement("li");
-        lnameInput.innerText = lname.value;
-        usersAnswer.append(fnameInput);
-        usersAnswer.append(lnameInput);
+        let fname = document.createElement("li");
+        fname.innerText = fnameInput.value;
+        let lname = document.createElement("li");
+        lname.innerText = lnameInput.value;
+        usersAnswer.append(fname);
+        usersAnswer.append(lname);
     }
 }
 
