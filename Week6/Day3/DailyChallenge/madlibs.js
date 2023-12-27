@@ -15,7 +15,13 @@ const libButton = document.getElementById("lib-button");
 const story = document.getElementById("story");
 const shuffleButton = document.getElementById("shuffle-button");
 
-function generateStory(event) {
+let madlibs = [];
+
+function generateStory(index) {
+    story.innerHTML = madlibs[index];
+}
+
+libform.addEventListener("submit", function(event) {
     event.preventDefault();
     let noun = document.getElementById("noun").value;
     let adjective = document.getElementById("adjective").value;
@@ -25,16 +31,22 @@ function generateStory(event) {
     if (noun === "" || adjective === "" || person === "" || verb === "" || place === "") {
         alert("Please fill all the fields!");
     } else {
-        let madlibs = [
+        madlibs = [
         `A ${adjective} wizard turned ${person} into a ${noun}. To save ${person}, you'll have to go on adventure until you reach ${place} and ${verb} to undo the spell.`,
         `Dear ${person}: our time at ${place} have been ${adjective}. Can you please send me a ${noun} so that we can ${verb} again.`,
         `${person} woke up in the morning feeling ${adjective}, tried to ${verb} and realized that they are actually in ${place} because ${noun} brought them there.`,
         `10 ${adjective} ways to ${verb}! Brought to you by ${person}, the first person to make a ${noun} business in ${place}.`,
         `Living in ${place} is ${adjective}. Whenever you try to ${verb}, ${noun} appears. Also, ${person} lives there.`
         ];
-        story.innerHTML = madlibs[Math.floor(Math.random() * madlibs.length)];
+        generateStory(0);
     }
-}
+});
 
-libform.addEventListener("submit", generateStory);
-shuffleButton.addEventListener("click", generateStory);
+shuffleButton.addEventListener("click", function() {
+    if (madlibs.length != 0) {
+        let index = Math.floor(Math.random() * madlibs.length);
+        generateStory(index);
+    } else {
+        alert("Nothing to shuffle!");
+    }
+});
