@@ -40,7 +40,7 @@ for (let book of allBooks) {
     bookContainer.innerHTML = `<p>${book.title} is written by ${book.author}</p>
     <img src="${book.image}" width="100">
     `
-    if (book.alreadyRead === true) {
+    if (book.alreadyRead) {
         bookContainer.style.color = "red";
     }
 }
