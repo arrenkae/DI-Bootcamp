@@ -22,14 +22,18 @@ console.log(form);
 
 const fnameInput = document.getElementById("fname")
 const lnameInput = document.getElementById("lname")
-const submit = document.getElementById("submit")
 
-console.log(fname);
-console.log(lname);
-console.log(submit);
+console.log(fnameInput);
+console.log(lnameInput);
 
-function submitValues(e) {
-    e.preventDefault();
+const fnameInput2 = document.getElementsByName("firstname")[0]
+const lnameInput2 = document.getElementsByName("lastname")[0]
+
+console.log(fnameInput2);
+console.log(lnameInput2);
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
     if (fnameInput.value === "" || lnameInput.value === "") {
         alert("Please fill all the fields!");
     } else {
@@ -41,6 +45,4 @@ function submitValues(e) {
         usersAnswer.append(fname);
         usersAnswer.append(lname);
     }
-}
-
-form.addEventListener("submit", submitValues);
+});

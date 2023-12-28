@@ -190,12 +190,12 @@ console.log(toGramsA(20));
 function makeJuice(size) {
     let ingredients = [];
     function addIngredients(ingredient1, ingredient2, ingredient3) {
-        ingredients.push(ingredient1, ingredient2, ingredient3)
+        ingredients.push(ingredient1, ingredient2, ingredient3);
     }
     function displayJuice() {
         const juiceBar = document.getElementById("juice");
         let juiceOrder = document.createElement("p");
-        juiceOrder.innerText = `The client wants a ${size} juice, containing ` + ingredients.join(", ")
+        juiceOrder.innerText = `The client wants a ${size} juice, containing ` + ingredients.join(", ");
         juiceBar.append(juiceOrder);
     }
     addIngredients("watermelon", "mango", "orange");
