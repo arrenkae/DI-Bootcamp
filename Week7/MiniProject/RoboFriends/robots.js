@@ -70,3 +70,35 @@ const robots = [
       image:'https://robohash.org/10?200x200'
     }
     ];
+
+const container = document.getElementById("container");
+const searchform = document.getElementById("searchform");
+const search = document.getElementById("search");
+
+function showRobots(robotList) {
+  container.replaceChildren();
+  robotList.forEach((robot) => {
+    let card = document.createElement("div");
+    card.className = "card";
+    let image = document.createElement("img");
+    let name = document.createElement("h2");
+    let email = document.createElement("p");
+    image.src = robot.image;
+    name.innerText = robot.name;
+    email.innerHTML = `<a href = "mailto:${robot.email}">${robot.email}</a>`;
+    container.append(card);
+    card.append(image);
+    card.append(name);
+    card.append(email);
+  });
+}
+
+showRobots(robots);
+
+searchform.addEventListener("input", (event) => {
+  event.preventDefault;
+  let searchedName = search.value.toLowerCase();
+  let robotsFiltered = robots.filter(robot => robot.name.toLowerCase().includes(searchedName));
+  console.log(robotsFiltered);
+  showRobots(robotsFiltered);
+});
