@@ -240,30 +240,30 @@
 // console.log(username);
 
 /** Classes */
-class Animal {
-    constructor(animalName) {
-        this.name = animalName;
-    }
-    makeSound() {
-        console.log(`${this.name} makes a sound`);
-    }
-};
+// class Animal {
+//     constructor(animalName) {
+//         this.name = animalName;
+//     }
+//     makeSound() {
+//         console.log(`${this.name} makes a sound`);
+//     }
+// };
 
-const animalA = new Animal('dog');
-const animalB = new Animal('lion');
-animalA.makeSound();
-animalB.makeSound();
+// const animalA = new Animal('dog');
+// const animalB = new Animal('lion');
+// animalA.makeSound();
+// animalB.makeSound();
 
-class Dog extends Animal {
-    constructor(dogname) {
-        super('dog')
-        this.dogname = dogname;
-    }
-    makeSound() {
-        console.log(`${this.dogname} the ${this.name} barks`);
-    }
-};
+// class Dog extends Animal {
+//     constructor(dogname) {
+//         super('dog')
+//         this.dogname = dogname;
+//     }
+//     makeSound() {
+//         console.log(`${this.dogname} the ${this.name} barks`);
+//     }
+// };
 
-const myDog = new Dog('Tony');
-myDog.makeSound();
+// const myDog = new Dog('Tony');
+// myDog.makeSound();
 
