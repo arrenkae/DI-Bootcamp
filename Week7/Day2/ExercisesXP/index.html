@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercises XP</title>
+</head>
+<body>
+    <h2>Exercise 1 : HTML Form</h2>
+    <!-- 1. Create a form like the one above. The form should contain three inputs:
+    - a small text input asking for a name,
+    - a larger textarea input to write a message,
+        - a submit input (“Send”)
+    2. When you click the Send button, the form will be submitted with a GET method. (you can use the same HTML file for the action url)
+    3. Where will the sent data appear? -->
+
+    <form action="index.html" method="GET" >
+        Name<br>
+        <input type="text" name="name"><br><br>
+        Comments<br>
+        <textarea name="comments" rows="4" cols="30"></textarea><br><br>
+        <input type="submit" value="Send">
+    </form>
+
+    <!-- Data is added to the url as a query string (index.html?name=John&comments=Hello this is a comment) -->
+
+    <h2>Exercise 2 : HTML Form #2</h2>
+
+    <!-- 1. Use the same form structure as Exercise 1.
+    2. When you click the Send button, the form will be submitted with a POST method.(you can use the same HTML file for the action url)
+    3. Where will the sent data appear? Hint : Look at the Network Tab -->
+
+    <form action="index.html" method="POST">
+        Name<br>
+        <input type="text" name="name"><br><br>
+        Comments<br>
+        <textarea name="comments" rows="4" cols="30"></textarea><br><br>
+        <input type="submit" value="Send">
+    </form>
+
+    <!-- Data appears in the payload section of the Network tab -->
+
+    <script src="exercisesXP.js"></script>
+</body>
+</html>
