@@ -61,16 +61,24 @@ const generateButton = document.getElementById('generate');
 const quoteText = document.getElementById('quote');
 const authorText = document.getElementById('author');
 
-function randomizeQuote(quotes, index=0) {
+function randomizeIndex(quotes, currentIndex) {
+    let newIndex;
     do {
-        index = Math.floor(Math.random() * quotes.length);
-    } while (quoteText.textContent === quotes[index].quote);
+        newIndex = Math.floor(Math.random() * quotes.length);
+    } while (newIndex === currentIndex);
+    return newIndex;
+}
+
+function getQuote(quotes, index) {
     return quotes[index];
 }
 
+let index = randomizeIndex(quotes);
+
 generateButton.addEventListener("click", function() {
-    let currentQuote = randomizeQuote(quotes);
-    quoteText.innerText = `"${currentQuote.quote}"`;
-    authorText.innerText = `— ${currentQuote.author}`
+    let currentQuote = getQuote(quotes, index);
+    index = randomizeIndex(quotes, index);
+    quoteText.textContent = `"${currentQuote.quote}"`;
+    authorText.textContent = `— ${currentQuote.author}`
 })
 
