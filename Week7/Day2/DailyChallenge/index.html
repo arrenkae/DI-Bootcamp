@@ -3,23 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise XP Gold: Main</title>
+    <title>Daily challenge: HTML Form</title>
 </head>
 <body>
-    <h2>Exercise 1: HTML Form #3</h2>
-    <!-- 1. Create a form like the form provided above. The form should contain three inputs:
-    - name,
-    - lastname,
-    - submit
-    2. Send the data to another HTML file and display the sent data to a section tag, using the DOM. -->
-
-    <form action="userinfo.html" method="GET" >
-        NAME: <input type="text" name="fname"><br><br>
-        LAST NAME: <input type="text" name="lname"> <input type="submit" value="Submit">
+    <form action="index.html" method="GET" >
+        <input type="text" name="name">
+        <input type="text" name="lastname">
+        <input type="submit" value="Send">
     </form>
-    <div id="json"></div>
-
+    <div id="info"></div>
     <script src="form.js"></script>
-
 </body>
 </html>
