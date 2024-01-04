@@ -74,15 +74,35 @@ console.log(parseJSON("id: 1, name: aaa"));
  * [2,5,3,7,2,3,6,8,6] => 2
  */
 
-arr = [2,5,3,7,2,3,6,8,6]
+// arr = [2,5,3,7,2,3,6,8,6];
 
-let min = Math.abs(arr[1] - arr[0]);
+// function minDistance(arr) {
+//     let distances = [];
+//     for (let i = 1; i < arr.length; i++) {
+//         if (i != arr.lastIndexOf(arr[i])) {
+//             let distance = arr.lastIndexOf(arr[i]) - 1;
+//             distances.push(distance);
+//         }
+//     }
+//     return distances.length === 0 ? -1 : distances.sort()[0];
+// }
 
-for (let i = 1; i < arr.length-1; i++) {
-    let diff = Math.abs(arr[i] - arr[i+1]);
-    if (diff < min) {
-        min = diff;
-    }
+// console.log(minDistance(arr));
+
+let obj = {
+    name: 'John',
+    age: 30,
+    city: 'Tel Aviv',
+    sensitiveInfo: "some sensitive data"
 }
 
-console.log(min);
+/** obj, replacer, spaces */
+console.log(JSON.stringify(obj, ["name", "city", "age"], 4));
+
+function replaceSensitive(key, value) {
+    if (key === 'sensitiveInfo') return undefined;
+    if (typeof value === 'string') return undefined;
+    return value;
+}
+
+console.log(JSON.stringify(obj, replaceSensitive, 2));

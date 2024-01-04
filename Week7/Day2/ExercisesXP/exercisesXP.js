@@ -32,3 +32,4 @@ let marioJson = JSON.stringify(marioGame);
 console.log(marioJson);
 
 /** Nested objects also get converted */
+
