@@ -124,25 +124,31 @@ function toJs(jsonStr) {
 };
 
 function toMorse(morseJS) {
-    let userInput = prompt('Word or sentence to translate into morse code: ')
+    const userInput = prompt('Word or sentence to translate into morse code: ')
     return new Promise((resolve, reject) => {
-        let morseTranslation = [];
-        let charList = [...userInput].filter(char => char != ' ');
-        charList.forEach(char => {
+        const charList = [...userInput.toLowerCase()].filter(char => char != ' ');
+        const morseTranslation = charList.map(char => {
             if (char.toLowerCase() in morseJS) {
-                morseTranslation.push(morseJS[char.toLowerCase()]);
+                return morseJS[char];
             } else {
                 reject('Input contains invalid characters');
             }
         });
         resolve(morseTranslation);
     });
-}
+};
+
+function joinWords(morseTranslation) {
+    document.getElementById('morse').innerHTML = morseTranslation.join('<br>');
+};
 
 toJs(morse)
-    .then((morseJS) => {
-        return toMorse(morseJS)
+    .then(morseJS => {
+        return toMorse(morseJS);
     })
-    .then((translation) => {
-        console.log(translation);
+    .then(translation => {
+        joinWords(translation);
+    })
+    .catch(err => {
+        console.log(err);
     });
