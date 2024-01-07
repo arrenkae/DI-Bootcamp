@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+}
+
+body {
+    background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/aef70a38105165.575616caeecdb.jpg");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#info, #find {
+    color: black;
+    border: 2px solid black;
+    font-size: 1.5em;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5%;
+}
+
+#info {
+    background-color: rgba(214, 216, 216, 0.9);
+    width: 540px;
+    height: 280px;
+    text-align: center;
+    margin-top: 150px;
+    padding: 30px;
+    line-height: 2.2em;
+}
+
+#find {
+    width: 300px;
+    margin-top: 10px;
+}
