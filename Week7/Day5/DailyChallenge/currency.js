@@ -38,7 +38,7 @@ const convert = async(codeFrom, codeTo, amount) => {
         const response = await fetch(`https://v6.exchangerate-api.com/v6/2b13423dfbac423a2cf0dfe3/pair/${codeFrom}/${codeTo}/${amount}`);
         if(response.ok) {
             const obj = await response.json();
-            showResult(obj.conversion_result);
+            showResult(obj.conversion_result, codeTo);
         } else {
             throw new Error("Unable to convert");
         }
@@ -48,9 +48,9 @@ const convert = async(codeFrom, codeTo, amount) => {
     }
 };
 
-const showResult = (result) => {
+const showResult = (result, currency) => {
     if (typeof result === 'number') {
-        document.getElementById('result').innerText = result;
+        document.getElementById('result').innerText = result + " " + currency;
     } else {
         document.getElementById('result').innerText = 'N/A';
     }
