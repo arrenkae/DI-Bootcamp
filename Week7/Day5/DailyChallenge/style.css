@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+}
+
+body {
+    background-image: url("background.jpg");
+    background-size: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#container {
+    background-color: rgba(232, 238, 231, 0.9);
+    width: 600px;
+    height: 380px;
+    color: darkslategray;
+    border: darkslategray 1px solid;
+    border-radius: 5%;
+    text-align: center;
+    margin-top: 150px;
+    padding: 30px;
+    line-height: 2.2em;
+}
+
+#container h1 {
+    margin-bottom: 15px;
+}
+
+select, #amount {
+    background-color: floralwhite;
+    border-style: solid;
+    padding: 5px;
+}
+
+#submit {
+    background-color: rgba(143, 188, 143, 0.5);
+    color: rgb(27, 46, 46);
+    border: none;
+    width: 80px;
+    padding: 5px;
+}
+
+#submit:hover {
+    background-color: darkseagreen;
+}
+
+#switch {
+    margin-top: 10px;
+    background-color: transparent;
+    border: none;
+}
+
+#switch:hover {
+    transition: transform .2s;
+    transform: scale(1.2);
+}
+
+#result {
+    background-color: rgba(143, 188, 143, 0.5);
+    width: 40%;
+    height: 35px;
+    margin: auto;
+    margin-top: 7px;
+}

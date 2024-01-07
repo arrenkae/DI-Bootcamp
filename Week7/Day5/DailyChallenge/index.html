@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <h1>Currency Converter</h1>
+        <form id="converter" onsubmit="getAmount(event)">
+            <h3><label for="from">From:</label></h3>
+            <select name="from" id="from"></select>
+            <h3><label for="to">To:</label></h3>
+            <select name="to" id="to"></select>
+            <h3>Amount:</h3>
+            <input type="text" name="amount" id="amount">
+            <input type="submit" id="submit" value="Convert">
+        </form>
+        <button id="switch" onclick="switchCurrencies()"><img src="switch.png" width="40px" height="40px" alt="switch"></button>
+        <div id="result"> </div>
+    </div>
+    <script src="currency.js"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 }
 
 body {
-    background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/aef70a38105165.575616caeecdb.jpg");
+    background-image: url("background.jpg");
     display: flex;
     flex-direction: column;
     align-items: center;
