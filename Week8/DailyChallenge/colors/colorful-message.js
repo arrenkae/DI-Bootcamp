@@ -1,6 +1,6 @@
-// Daily Challenge: Node.js App & NPM (pt.3)
+// Daily Challenge: Node.js App & NPM
 
-// Task 2: Using an NPM Module
+// Task 2: Using an NPM Module (pt.1)
 
 // 1. Inside the daily-challenge directory, open a terminal and run npm init to initialize a new Node.js project. Follow the prompts to set up your project.
 // 2. Install the chalk package by running npm install chalk in the terminal.
