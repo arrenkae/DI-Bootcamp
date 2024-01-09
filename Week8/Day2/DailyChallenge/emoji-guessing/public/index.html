@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Guessing Game</title>
+</head>
+<body>
+    <h2>Guess this emoji</h2>
+    <form id="guessing" onsubmit="verifyAnswer(event)">
+        <span id="emoji"></span>
+        <select name="answers" id="answers"></select>
+        <input type="submit" value="Go">
+        <span id="feedback" style="display: none; margin-left: 5px;"></span>
+    </form>
+    <h3 id="score">Score: 0</h3>
+    <script src="script.js"></script>
+</body>
+</html>
