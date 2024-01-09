@@ -12,10 +12,14 @@ import chalk from 'chalk';
 export const colorfulMessage = (message) => {
     const colors = ['red', 'yellow', 'green', 'blue', 'magenta'];
     let messageColored = '';
-    for (let i=0, j=0; i < message.length; i++) {
-        messageColored += chalk[colors[j]](message[i]);
-        if (message[i] != ' ') {j++};
-        if (j >= colors.length) {j = 0};
-    };
-    return(messageColored);
+    try {
+        for (let i=0, j=0; i < message.length; i++) {
+            messageColored += chalk[colors[j]](message[i]);
+            if (message[i] != ' ') {j++};
+            if (j >= colors.length) {j = 0};
+        };
+        return(messageColored);
+    } catch (error) {
+        console.log(error.message);
+    }
 }

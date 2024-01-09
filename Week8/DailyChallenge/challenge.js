@@ -10,6 +10,11 @@
 import { greet } from './greeting.js';
 import { colorfulMessage } from './colors/colorful-message.js';
 import { readFile } from './files/read-file.js';
+import path from 'path';
+
+const currentDir = path.resolve();
 
 console.log(colorfulMessage(greet('Nadia')));
-readFile('./files/file-data.txt');
+
+let data = await readFile(path.resolve(currentDir, './files', 'file-data.txt'))
+console.log(colorfulMessage(data));

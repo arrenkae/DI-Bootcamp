@@ -7,11 +7,12 @@
 // 3. Create a file named read-file.js.
 // 4. In read-file.js, require the fs module and read the content from the file-data.txt file. Display the content in the terminal.
 
-import fs from 'fs';
+import { promises as fs } from 'fs';
 
-export const readFile = (filename) => {
-    fs.readFile(filename, 'utf-8', (err, data) => {
-        if(err) return console.log(err.message);
-        console.log(data);
-    })
+export const readFile = async(filePath) => {
+    try {
+        return await fs.readFile(filePath, 'utf-8');
+    } catch (error) {
+        console.log(error.message);
+    }
 }
