@@ -1,31 +1,48 @@
 let emojis = [];
-let score = 0;
+let currentEmoji = {};
 
 const newEmoji = async() => {
     try {
         do {
             const response = await fetch('http://localhost:3000/emojis');
             emojis = await response.json();
-        } while ( emojis[0].emoji === document.getElementById('emoji').innerText);
-        renderChoices();
+            currentEmoji = emojis[0];
+        } while ( currentEmoji.emoji === document.getElementById('emoji').innerText);
+        render();
+        showScore();
     } catch(error) {
         console.log(error);
     }
 }
 
-const renderChoices = (choices=3) => {
-    let answers = [emojis[0].name];
+const render = (choices=3) => {
+    let answers = [currentEmoji.name];
     for (let i=1; i < choices; i++) { 
         answers.push(emojis[i].name);
     }
     answers.sort(() => Math.random() - 0.5);
-    document.getElementById('emoji').innerText = emojis[0].emoji;
+    document.getElementById('emoji').innerText = currentEmoji.emoji;
     for (element of answers) {
         const answerOption = document.createElement('option');
         answerOption.value = element;
         answerOption.text = element;
         document.getElementById('answers').append(answerOption);
     }
+    fetch('http://localhost:3000/scores')
+    .then(response => response.json())
+    .then(score => {
+        document.getElementById('score').innerText = `Score: ${score.score}`;
+    })
+    .catch(error => console.log(error))
+}
+
+const showScore = () => {
+    fetch('http://localhost:3000/scores')
+    .then(response => response.json())
+    .then(scores => {
+        document.getElementById('score').innerText = `Score: ${scores.score}`;
+    })
+    .catch(error => console.log(error))
 }
 
 newEmoji();
@@ -45,16 +62,20 @@ const showFeedback = (message, color) => {
     setTimeout(() => { feedback.style.display = "none"; }, 2000);
 }
 
-const verifyAnswer = (event) => {
-    event.preventDefault();
-    const currentEmoji = emojis.find((element) => element.emoji === document.getElementById('emoji').innerText);
-    if (document.getElementById('answers').value === currentEmoji.name) {
-        showFeedback('Correct!', '#7FFFD4');
-        score++;
-        document.getElementById('score').innerText = `Score: ${score}`;
-    } else {
-        showFeedback('Wrong!', '#8B0000');
-    }
-    resetAnswers();
-    newEmoji();
-};
+const verifyAnswer = () => {
+    const guess = document.getElementById('answers').value;
+    fetch('http://localhost:3000/emojis', {
+        method: 'POST',
+        headers: {
+            'Content-type':'application/json',
+        },
+        body: JSON.stringify({ guess, name: currentEmoji.name })
+    })
+    .then(response => response.json())
+    .then(msg => {
+        showFeedback(msg.message, msg.color);
+        resetAnswers();
+        newEmoji();
+    })
+    .catch(error => console.log(error))
+}

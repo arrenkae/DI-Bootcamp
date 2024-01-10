@@ -7,13 +7,13 @@
 </head>
 <body>
     <h2>Guess this emoji</h2>
-    <form id="guessing" onsubmit="verifyAnswer(event)">
+    <div id="guessing">
         <span id="emoji"></span>
         <select name="answers" id="answers"></select>
-        <input type="submit" value="Go">
+        <button id="guess" onclick="verifyAnswer()">Go</button>
         <span id="feedback" style="display: none; margin-left: 5px;"></span>
-    </form>
-    <h3 id="score">Score: 0</h3>
+    </div>
+    <h3 id="score"></h3>
     <script src="script.js"></script>
 </body>
 </html>

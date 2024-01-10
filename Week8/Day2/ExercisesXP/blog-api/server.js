@@ -12,14 +12,16 @@
 // 7. Implement the following routes using Express:
 //  - GET /posts: Return a list of all blog posts.
 //  - GET /posts/:id: Return a specific blog post based on its id.
-//  - (SKIP THIS) POST /posts: Create a new blog post.
-//  - (SKIP THIS) PUT /posts/:id: Update an existing blog post. 
-//  - (SKIP THIS) DELETE /posts/:id: Delete a blog post.
+//  - POST /posts: Create a new blog post.
+//  - PUT /posts/:id: Update an existing blog post. 
+//  - DELETE /posts/:id: Delete a blog post.
 // 8. Implement error handling for invalid routes and server errors.
 // 9. Start the Express app and listen on a specified port (e.g., 3000).
 
 const express = require('express');
+
 const app = express();
+app.use(express.json());
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
@@ -62,4 +64,27 @@ app.get('/posts/:id', (request, response) => {
     const post = posts.find(item => item.id == id);
     if (!post) return response.status(404).json({msg: 'Post not found'});
     response.json(post);
+});
+
+app.post('/posts', (request, response) => {
+    const newPost = {...request.body, id: posts.length + 1};
+    posts.push(newPost);
+    response.status(201).json(newPost);
+});
+
+app.put('/posts/:id', (request, response) => {
+    const {id} = request.params;
+    const { title, content } = request.body;
+    const index = posts.findIndex(item => item.id == id);
+    if (index === -1) return response.status(404).json({msg: 'Post not found'});
+    posts[index] = {...posts[index], title: title, content: content};
+    response.status(200).json('Post updated');
+});
+
+app.delete('/posts/:id', (request, response) => {
+    const {id} = request.params;
+    const index = posts.findIndex(item => item.id == id);
+    if (index === -1) return response.status(404).json({msg: 'Post not found'});
+    posts.splice(index, 1);
+    response.status(200).json('Post deleted');
 });

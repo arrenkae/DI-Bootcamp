@@ -23,4 +23,3 @@ app.get('/posts', (request, response) => {
     })
     .catch((error) => console.log(error.message))
 });
-
