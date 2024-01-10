@@ -3,8 +3,10 @@ let score = 0;
 
 const newEmoji = async() => {
     try {
-        const response = await fetch('http://localhost:3000/api/emojis');
-        emojis = await response.json();
+        do {
+            const response = await fetch('http://localhost:3000/emojis');
+            emojis = await response.json();
+        } while ( emojis[0].emoji === document.getElementById('emoji').innerText);
         renderChoices();
     } catch(error) {
         console.log(error);
@@ -12,17 +14,12 @@ const newEmoji = async() => {
 }
 
 const renderChoices = (choices=3) => {
-    const index = Math.floor(Math.random() * emojis.length);
-    let answers = [emojis[index].name];
-    for (let i=0; i < choices-1; i++) { 
-        let index;
-        do {
-            index = Math.floor(Math.random() * emojis.length);
-        } while (answers.includes(emojis[index].name));
-        answers.push(emojis[index].name);
+    let answers = [emojis[0].name];
+    for (let i=1; i < choices; i++) { 
+        answers.push(emojis[i].name);
     }
     answers.sort(() => Math.random() - 0.5);
-    document.getElementById('emoji').innerText = emojis[index].emoji;
+    document.getElementById('emoji').innerText = emojis[0].emoji;
     for (element of answers) {
         const answerOption = document.createElement('option');
         answerOption.value = element;
