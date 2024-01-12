@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Quiz</title>
+</head>
+<body>
+    <h1>Trivia Quiz</h1>
+    <div id="quiz">
+        <p id="question"></p>
+        <input type="text" name="answer" id="answer">
+        <button id="sumbit" onclick="submitAnswer()">Sumbit</button>
+        <span id="feedback" style="display: none"></span>
+    </div>
+    <div id="results" style="display: none">
+        <h3 id="score"></h3>
+        <button id="sumbit" onclick="again()">Again</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
