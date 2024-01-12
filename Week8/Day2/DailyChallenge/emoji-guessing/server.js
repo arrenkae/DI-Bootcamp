@@ -7,6 +7,7 @@ const app = express();
 const __dirname = path.resolve();
 
 app.use('/', express.static(__dirname + '/public'));
+app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
 app.listen(3000, () => {
@@ -30,7 +31,6 @@ app.post('/emojis', (request, response) => {
     }
     else { return response.json({message: 'Wrong!', color: '#8B0000'})}
 });
-
 
 const shuffle = (arr) => {
     arr.sort(() => Math.random() - 0.5);
