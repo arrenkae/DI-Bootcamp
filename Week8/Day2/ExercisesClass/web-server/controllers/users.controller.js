@@ -1,46 +1,66 @@
 const { response } = require("express");
-const { users } = require("../config/db.js");
+const { _getAllUsers, _getUser, _addUser, _updateUser, _deleteUser } = require('../models/users.models.js')
 
 const getAllUsers = (request, response) => {
-    response.json(users);
+    _getAllUsers()
+    .then(data => {
+        response.json(data);
+    })
+    .catch(err => {
+        response.status(404).json({ msg: "Not found" })
+    })
 }
 
-const searchUserName = (request, response) => {
-    const {name} = request.query;
-    const results = users.filter(item => item.name.toLowerCase().includes(name.toLowerCase()));
-    if (results.length === 0) return response.status(404).json({msg: 'Users not found'});
-    response.json(results);
-}
+// const searchUserName = (request, response) => {
+//     const {name} = request.query;
+//     const results = users.filter(item => item.name.toLowerCase().includes(name.toLowerCase()));
+//     if (results.length === 0) return response.status(404).json({msg: 'Users not found'});
+//     response.json(results);
+// }
 
-const getUser = (request, response) => {
+const getUser = async(request, response) => {
     const {id} = request.params;
-    const user = users.find(item => item.id == id);
-    if (!user) return response.status(404).json({msg: 'User to get not found'});
-    response.send(`Name: ${user.name}, email: ${user.email}`);
-}
+    try {
+        const data = await _getUser(id);
+        if(data.length === 0) return response.status(404).json({msg: 'User not found'});
+        response.status(200).json(data);
+    } catch (error) {
+        return response.status(404).json({msg: 'Users not found'});
+    }
+};
 
 const addUser = (request, response) => {
-    console.log(request.body);
-    const new_user = {...request.body, id: users.length + 1};
-    users.push(new_user);
-    response.json(users);
+    const { name, email, password } = request.body;
+    _addUser(name, email, password)
+    .then(data => {
+        response.json(data);
+    })
+    .catch(err => {
+        response.status(404).json({msg: 'Cannot add user'});
+    })
 }
 
 const updateUser = (request, response) => {
     const {id} = request.params;
-    const { name, email } = request.body;
-    const index = users.findIndex(item => item.id == id);
-    if (index === -1) return response.status(404).json({msg: 'User to update not found'});
-    users[index] = {...users[index], name: name, email: email};
-    response.json(users);
+    const { name, email, password } = request.body;
+    _updateUser(id, name, email, password)
+    .then(data => {
+        response.json(data);
+    })
+    .catch(err => {
+        response.status(404).json({msg: 'Cannot update user'});
+    })
 }
 
 const deleteUser = (request, response) => {
     const {id} = request.params;
-    const index = users.findIndex(item => item.id == id);
-    if (index === -1) return response.status(404).json({msg: 'User to delete not found'});
-    users.splice(index, 1);
-    response.json(users);
+    _deleteUser(id)
+    .then(data => {
+        response.json(data);
+    })
+    .catch(err => {
+        response.status(404).json({msg: 'Cannot delete user'});
+    })
 }
 
 module.exports = { getAllUsers, getUser, searchUserName, addUser, updateUser, deleteUser };

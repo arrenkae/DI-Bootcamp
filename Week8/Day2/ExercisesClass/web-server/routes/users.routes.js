@@ -4,7 +4,8 @@ const { getAllUsers, getUser, searchUserName, addUser, updateUser, deleteUser } 
 
 const users_router = express.Router();
 
-users_router.get('/', [auth, logger], getAllUsers);
+// users_router.get('/', [auth, logger], getAllUsers);
+users_router.get('/', getAllUsers);
 users_router.get('/search', searchUserName);
 users_router.get('/:id', getUser);
 users_router.post('/', addUser);
