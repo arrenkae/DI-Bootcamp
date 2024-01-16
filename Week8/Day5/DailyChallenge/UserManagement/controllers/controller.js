@@ -34,10 +34,10 @@ export const login = (req, res) => {
         const user = JSON.parse(data).find(user => user.username == username);
         if (!user) return res.status(404).json({msg: 'User not found'});
         if (bcrypt.compareSync(password, user.password)){
-            res.status(200).send({msg:`Hi ${user.fname}, welcome back again!`})
+            res.status(200).json({msg:`Hi ${user.fname}, welcome back again!`})
         }
         else{
-            res.status(404).send({msg: 'Invalid password'});
+            res.status(404).json({msg: 'Invalid password'});
         }
     });
 };
