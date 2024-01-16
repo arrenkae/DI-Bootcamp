@@ -5,6 +5,9 @@ const express = require('express');
 const bp = require('body-parser');
 const { users_router } = require('./routes/users.routes.js')
 const { products_router } = require('./routes/products.routes.js')
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const app = express();
 
@@ -14,8 +17,8 @@ app.use(bp.json());
 // app.use(logger);
 // app.use('/users', auth);
 
-app.listen(3001, () => {
-    console.log('run on port 3001');
+app.listen(process.env.PORT || 3001, () => {
+    console.log(`run on port ${process.env.PORT || 3001}`);
 });
 
 app.use('/', express.static(__dirname + '/public'));
@@ -45,3 +48,5 @@ app.delete
  */
 
 /** Middleware: request => middleware => response */
+
+/** .env */

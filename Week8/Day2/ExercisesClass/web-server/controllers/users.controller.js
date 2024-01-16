@@ -11,12 +11,12 @@ const getAllUsers = (request, response) => {
     })
 }
 
-// const searchUserName = (request, response) => {
-//     const {name} = request.query;
-//     const results = users.filter(item => item.name.toLowerCase().includes(name.toLowerCase()));
-//     if (results.length === 0) return response.status(404).json({msg: 'Users not found'});
-//     response.json(results);
-// }
+const searchUserName = (request, response) => {
+    const {name} = request.query;
+    const results = users.filter(item => item.name.toLowerCase().includes(name.toLowerCase()));
+    if (results.length === 0) return response.status(404).json({msg: 'Users not found'});
+    response.json(results);
+}
 
 const getUser = async(request, response) => {
     const {id} = request.params;

@@ -1,13 +1,14 @@
 const knex = require('knex');
+require('dotenv').config();
 
 const db = knex({
-    client: 'postgres',
+    client: 'pg',
     connection: {
-      host : 'cornelius.db.elephantsql.com', // '127.0.0.1'
-      port : 5432,
-      user : 'igmmdggx',
-      password : 'A0XniyV-_90RDo5nrsClEMC2WP1PYDYs',
-      database : 'igmmdggx'
+      host : process.env.DB_HOST,
+      port : process.env.DB_PORT,
+      user : process.env.DB_USER,
+      password : process.env.DB_PASS,
+      database : process.env.DB_NAME
     }
 });
 
