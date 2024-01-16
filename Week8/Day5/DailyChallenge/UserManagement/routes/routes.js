@@ -1,10 +1,10 @@
 import express from 'express';
-import { getAllTasks, getTaskById, newTask, updateTask, deleteTask } from '../controllers/controller.js';
+import { register, login, getUsers, getUserById, updateUser } from '../controllers/controller.js';
 
 export const router = express.Router();
 
-router.get('/', getAllTasks);
-router.get('/tasks/:id', getTaskById);
-router.post('/tasks', newTask);
-router.put('/tasks/:id', updateTask);
-router.delete('/tasks/:id', deleteTask);
+router.post('/register', register);
+router.post('/login', login);
+router.get('/users', getUsers);
+router.get('/users/:id', getUserById);
+router.put('/users/:id', updateUser);

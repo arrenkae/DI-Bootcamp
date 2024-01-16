@@ -1,12 +1,1 @@
-[
-    {
-        "id":1,
-        "name":"test",
-        "done":false
-    },
-    {
-        "id":2,
-        "name":"testest",
-        "done":true
-    }
-]
+[{"id":"1","name":"Take shower","done":true},{"id":2,"name":"Go to class","done":false},{"id":"3","name":"Do exercises","done":true},{"id":4,"name":"Buy groceries","done":false}]

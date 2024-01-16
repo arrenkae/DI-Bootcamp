@@ -35,4 +35,4 @@ def main():
   uploadImage()
   getAssetInfo()
   createImageTag()
-main();
+main()
