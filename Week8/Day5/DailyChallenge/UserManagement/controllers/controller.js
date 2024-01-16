@@ -30,7 +30,7 @@ export const login = (req, res) => {
     const { username, password } = req.body;
     if ( !username || !password ) return res.status(404).json({msg: 'Provide username and password'});
     fs.readFile('./config/users.json', (err, data) => {
-        if(err) return res.status(404).send({msg: 'Unable to read file'});
+        if(err) return res.status(404).json({msg: 'Unable to read file'});
         const user = JSON.parse(data).find(user => user.username == username);
         if (!user) return res.status(404).json({msg: 'User not found'});
         if (bcrypt.compareSync(password, user.password)){
