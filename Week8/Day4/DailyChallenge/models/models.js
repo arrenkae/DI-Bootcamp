@@ -2,8 +2,7 @@ import bcrypt from 'bcrypt';
 import { db } from '../config/db.js';
 
 export const _register = (username, password, email, first_name, last_name) => {
-    const saltRounds = 10;
-    const salt = bcrypt.genSaltSync(saltRounds);
+    const salt = bcrypt.genSaltSync(10);
     return db('users')
     .insert({
         username,
