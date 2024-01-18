@@ -21,11 +21,11 @@ const App = () => {
   const [title, setTitle] = useState('My Title');
   const [users, setUsers] = useState([]);
 
-  useEffect(() => {
-    console.log('UseEffect');
-    if (users)
-      changeTitle()
-  }, [users])
+  // useEffect(() => {
+  //   console.log('UseEffect');
+  //   if (users)
+  //     changeTitle()
+  // }, [users])
 
   const changeTitle = () => {
     setTitle('My Users');
