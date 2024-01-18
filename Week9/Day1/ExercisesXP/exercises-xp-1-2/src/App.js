@@ -31,6 +31,7 @@ function App() {
       <header className="App-header">
         <>
           {myelement}
+          <p>Hello World!</p>
           <p>React is {sum} times better with JSX</p>
           <h3>{user.firstName} {user.lastName}</h3>
           <UserFavoriteAnimals favAnimals={user.favAnimals} />
