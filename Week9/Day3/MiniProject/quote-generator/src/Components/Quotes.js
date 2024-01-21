@@ -1,31 +1,39 @@
 import { useState, useEffect } from 'react';
 import quotes from './QuotesDatabase';
+import './Quotes.css';
 
 const Quotes = () => {
     const [quote, setQuote] = useState('');
-    const [color, setColor] = useState(Math.floor(Math.random()*16777215).toString(16));
+    const [bgColor, setBgColor] = useState(0);
+    const [textColor, setTextColor] = useState(0);
 
     useEffect(() => {
         randomize();
     }, []);
 
+    useEffect(() => {
+        document.body.style.backgroundColor = "#" + bgColor;
+    }, [bgColor]);
+
     const randomize = () => {
         let oldIndex = quotes.findIndex(element => element.quote === quote.quote);
-        console.log(oldIndex);
         do {
             setQuote(quotes[Math.floor(Math.random() * quotes.length)]);
         } while (quote === quotes.oldIndex);
         do {
-            setColor(Math.floor(Math.random()*16777215).toString(16));
-        } while (document.body.style.backgroundColor === "#" + color);
-        document.body.style.backgroundColor = "#" + color;
+            setBgColor(Math.floor(Math.random()*16777215).toString(16));
+        } while (document.body.style.backgroundColor === "#" + bgColor);
+        do {
+            setTextColor(Math.floor(Math.random()*16777215).toString(16));
+        } while (document.getElementById('container').color === "#" + textColor);
+
     }
 
         return (
-        <div>
-            <h1>{quote.quote}</h1>
+        <div id="container" style={{color: `#${textColor}`}}>
+            <h1>"{quote.quote}"</h1>
             <p>- {quote.author}</p>
-            <button onClick = {randomize}>New quote</button>
+            <button onClick = {randomize} style={{backgroundColor: `#${textColor}`}}>New quote</button>
         </div>
     )
 }

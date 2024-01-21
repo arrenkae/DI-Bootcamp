@@ -1,0 +1,21 @@
+#container {
+    background-color: white;
+    display: inline-block;
+    padding: 30px 50px;
+    margin: 20px;
+    border-radius: 15px;
+}
+
+#container p {
+    font-style: italic;
+    text-align: right;
+}
+
+#container button {
+    float: right;
+    padding: 10px 15px;
+    border: 2px solid rgba(23, 23, 24, 0.089);
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+}
