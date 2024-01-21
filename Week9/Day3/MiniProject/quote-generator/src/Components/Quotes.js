@@ -2,30 +2,30 @@ import { useState, useEffect } from 'react';
 import quotes from './QuotesDatabase';
 
 const Quotes = () => {
-    let index; 
-
     const [quote, setQuote] = useState('');
-    const [author, setAuthor] = useState('');
+    const [color, setColor] = useState(Math.floor(Math.random()*16777215).toString(16));
 
     useEffect(() => {
-        randomizeQuote();
+        randomize();
     }, []);
 
-    const randomizeQuote = () => {
-        let newIndex;
+    const randomize = () => {
+        let oldIndex = quotes.findIndex(element => element.quote === quote.quote);
+        console.log(oldIndex);
         do {
-            newIndex = Math.floor(Math.random() * quotes.length);
-        } while (newIndex === index);
-        index = newIndex;
-        setQuote(quotes[index].quote);
-        setAuthor(quotes[index].author);
+            setQuote(quotes[Math.floor(Math.random() * quotes.length)]);
+        } while (quote === quotes.oldIndex);
+        do {
+            setColor(Math.floor(Math.random()*16777215).toString(16));
+        } while (document.body.style.backgroundColor === "#" + color);
+        document.body.style.backgroundColor = "#" + color;
     }
 
         return (
         <div>
-            <h2>"{quote}"</h2>
-            <p>- {author}</p>
-            <button onClick = {randomizeQuote}>New quote</button>
+            <h1>{quote.quote}</h1>
+            <p>- {quote.author}</p>
+            <button onClick = {randomize}>New quote</button>
         </div>
     )
 }
