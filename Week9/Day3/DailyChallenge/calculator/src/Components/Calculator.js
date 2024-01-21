@@ -4,21 +4,14 @@ const Calculator = () => {
     const [numbers, setNumbers] = useState([]);
     const [operator, setOperator] = useState('');
     const [result, setResult] = useState();
-    const [errorMsg, setErrorMsg] = useState();
 
-    const checkNums = (e) => {
+    const sumbitNums = (e) => {
         e.preventDefault();
-        console.log(e.target.elements);
-        if (isNaN(e.target.elements.num1.value) || isNaN(e.target.elements.num2.value)) {
-            setErrorMsg('Please enter valid numbers');
-        } else {
-            setNumbers([Number(e.target.elements.num1.value), Number(e.target.elements.num2.value)])
-            setOperator(e.target.elements.operator.value);
-        }
+        setNumbers([Number(e.target.elements.num1.value), Number(e.target.elements.num2.value)]);
+        setOperator(e.target.elements.operator.value);
     }
 
     useEffect(() => {
-        console.log(operator);
         if (numbers.length > 0) {
             switch(operator) {
                 case 'add':
@@ -40,10 +33,10 @@ const Calculator = () => {
 
     return (
         <div>
-            <form onSubmit={checkNums}>
+            <form onSubmit={sumbitNums}>
                 <h2>Adding two numbers</h2>
-                <input type="text" name="num1" />
-                <input type="text" name="num2" /> <span id='error'>{errorMsg}</span>
+                <input type="number" name="num1" />
+                <input type="number" name="num2" />
                 <br />
                 <select name='operator'>
                     <option value='add'>+</option>
