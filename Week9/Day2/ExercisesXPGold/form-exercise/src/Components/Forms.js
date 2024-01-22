@@ -5,7 +5,8 @@ const Forms = () => {
     const [age, setAge] = useState('');
     const [header, setHeader] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
-    const [text, setText] = useState('Lorem ipsum dolor sit amet, consectetur adipiscing elit. In blandit ut odio volutpat convallis.');
+    const [text, setText] = useState('');
+    const [car, setCar] = useState('');
 
     const inputUsername = (e) => {
         setUsername(e.target.value);
@@ -15,12 +16,20 @@ const Forms = () => {
         setAge(e.target.value);
     }
 
+    const selectCar = (e) => {
+        setCar(e.target.value);
+    }
+
+    const inputText = (e) => {
+        setText(e.target.value);
+    }
+
     const mySubmitHandler = (e) => {
         if (isNaN(e.target.elements.age.value)) {
             e.preventDefault();
             setErrorMsg('Your age must be a number');
         } else {
-            alert(`You are submitting ${e.target.elements.username.value} ${e.target.elements.age.value}`);
+            alert(`Name: ${username}, age: ${age}, car: ${car}, message: ${text}`);
         }
     }
 
@@ -38,10 +47,15 @@ const Forms = () => {
             <input type="text" name="username" onChange={inputUsername} />
             <p>Enter your age:</p>
             <input type="text" name="age" onChange={inputAge} /> <span id='error'>{errorMsg}</span><br /><br />
+            <select name='carModel' onChange={selectCar}>
+                    <option value='Ford'>Ford</option>
+                    <option value='Volvo'>Volvo</option>
+                    <option value='Fiat'>Fiat</option>
+            </select><br /><br />
+            <textarea onChange={inputText}>{text}</textarea>
+            <br /><br />
             <input type="submit" value="Submit" />
         </form>
-        <br />
-        <textarea>{text}</textarea>
         </>
     )
 }
