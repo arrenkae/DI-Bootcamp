@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 
 const TodoList = (props) => {
     const [todos, setTodos] = useState(['Wake up', 'Go to class', 'Do exercises']);
