@@ -1,0 +1,20 @@
+div {
+    display: inline-block;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 15px;
+    width: 800px;
+}
+
+.darkdiv {
+    border: 2px solid black;
+    background-color: #1c2833;
+    color: #f2f3f4;
+}
+
+.lightdiv {
+    border: 2px solid #99a3a4;
+    background-color: #f2f4f4;
+    color: #17202a;
+}
