@@ -1,0 +1,45 @@
+header {
+    background-color: #282c34;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.header-text {
+    margin-left: 20px;
+    text-align: left;
+}
+
+.scores {
+    margin: 30px;
+    text-align: right;
+}
+
+.game {
+    margin: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+
+.card {
+    width: 300px;
+    border: 1px solid lightgray;
+    border-radius: 2%;
+    padding: 10px;
+    font-size: smaller;
+    box-shadow: 2px 4px 4px rgba(15, 31, 50, 0.4);
+}
+
+.card:hover {
+    transition: transform .2s;
+    transform: scale(1.1);
+}
+
+.card img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+}
