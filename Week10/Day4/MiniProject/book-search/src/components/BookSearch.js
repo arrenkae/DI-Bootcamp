@@ -3,6 +3,8 @@ import axios from 'axios';
 import Books from './Books';
 import './BookSearch.css'
 
+const API_KEY = process.env.REACT_APP_API_KEY;
+
 export const BookContext = createContext();
 
 function BookSearch() {
@@ -18,7 +20,7 @@ function BookSearch() {
 
     const getBooks = async() => {
       try {
-        const res = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${inputRef.current.value}&key=AIzaSyDUuF29Q_jYmh4OrWQBR31LXTAQAqr2-FM`);
+        const res = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${inputRef.current.value}&key=${API_KEY}`);
         setBooks(res.data.items.map(item => item.volumeInfo));
       } catch (err) {
         console.log(err);
@@ -37,7 +39,6 @@ function BookSearch() {
         }
     })
       setBookList(sorted);
-      console.log(bookList);
     }
 
     return (

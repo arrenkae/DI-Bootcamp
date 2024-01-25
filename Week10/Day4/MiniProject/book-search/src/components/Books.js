@@ -10,7 +10,7 @@ function Books() {
             {bookList.length > 0 ? 
                 bookList.map((book, index) => {
                     return (
-                        <div className='book-card'>
+                        <div className='book-card' key={index}>
                             <img src={book.imageLinks ? book.imageLinks.thumbnail : null} alt="" />
                             <h3 key={index}>{book.title ? book.title : null}</h3>
                             <p>Author: {book.authors ? book.authors : null}</p>
