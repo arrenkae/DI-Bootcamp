@@ -1,0 +1,14 @@
+.book-list {
+    margin: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.book-card {
+    width: 200px;
+    border: 1px solid lightgray;
+    border-radius: 2%;
+    padding: 10px;
+    font-size: smaller;
+}
