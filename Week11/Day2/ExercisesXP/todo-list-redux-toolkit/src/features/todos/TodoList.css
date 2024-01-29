@@ -1,0 +1,16 @@
+div {
+    text-align: left;
+    margin-left: 10px;
+}
+
+ul button {
+    margin-left: 7px;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+li {
+    margin: 10px 0px;
+}
