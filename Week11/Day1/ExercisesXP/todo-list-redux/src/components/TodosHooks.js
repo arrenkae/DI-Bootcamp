@@ -26,7 +26,10 @@ const TodosHooks = props => {
             }
             </ul>
             <h3>Add task:</h3>
-            <input type="text" ref={inputRef}/> <button onClick={() => dispatch(addTodo(inputRef.current.value))}>Add</button>
+            <input type="text" ref={inputRef}/> <button onClick={() => {
+                if (inputRef.current.value) {dispatch(addTodo(inputRef.current.value))};
+                inputRef.current.value = '';
+                }}>Add</button>
         </div>
     )
 };

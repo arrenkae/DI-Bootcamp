@@ -24,7 +24,10 @@ const Todos = props => {
             }
             </ul>
             <h3>Add task:</h3>
-            <input type="text" ref={inputRef}/> <button onClick={() => props.add(inputRef.current.value)}>Add</button>
+            <input type="text" ref={inputRef}/> <button onClick={() => {
+                if (inputRef.current.value) {props.add(inputRef.current.value)};
+                inputRef.current.value = '';
+                }}>Add</button>
         </div>
     )
 };
