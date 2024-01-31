@@ -35,7 +35,6 @@ const ageSlice = createSlice({
   },
   extraReducers(builder) {
     builder.addCase(ageUpAsync.fulfilled, (state, action) => {
-      console.log(action.payload);
       state.age += action.payload;
       state.loading = false;
     });

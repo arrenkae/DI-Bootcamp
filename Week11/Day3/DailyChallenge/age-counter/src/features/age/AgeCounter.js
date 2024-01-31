@@ -1,5 +1,5 @@
-import logo from '/home/stokely/study/DI-Bootcamp/Week11/Day3/DailyChallenge/age-counter/src/logo.svg';
-import { useEffect, useState } from 'react';
+import logo from '../../logo.svg';
+import { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { calculateAge, ageUpAsync, ageDownAsync } from "./ageSlice";
 
@@ -8,6 +8,8 @@ const AgeCounter = (props) => {
   const [birthDate, setBirthDate] = useState();
   const { age, loading } = useSelector(state => state.age);
   const dispatch = useDispatch();
+
+  console.log(logo);
 
   const showAge = () => {
     if (loading) {
