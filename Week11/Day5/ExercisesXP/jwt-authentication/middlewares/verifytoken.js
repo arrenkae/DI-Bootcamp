@@ -3,32 +3,33 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export const verifytoken = (req, res, next) => {
-    const accesstoken = req.headers['authorization'];
-    const refreshtoken = req.cookies['refreshtoken'];
+    const accesstoken = req.cookies.token;
+    const refreshtoken = req.cookies.refreshToken;
     const secret = process.env.ACCESS_TOKEN_SECRET;
 
-    if (!accesstoken && !refreshtoken) return res.status(401).json({msg: 'Unauthorized'});
+    if (!accesstoken) {
+        return res.status(401).json({ message: 'Access token not found' });
+    }    
 
-    try {
-        const decoded = jwt.verify(accesstoken, secret);
-        req.user = decoded.user;
-        next();
-    } catch (error) {
-        console.log(error);
-        if (!refreshtoken) {
-            return res.status(401).json({ msg: 'Access Denied. No refresh token provided'});
-        }
-        try {
-            const decoded = jwt.verify(refreshtoken, secret);
-            const accesstoken = jwt.sign({ user: decoded.user }, secret, {
-                expiresIn: '1h',
+    jwt.verify(accesstoken, secret, (err, decoded) => {
+        if (err) {
+          if (!refreshtoken) {
+            return res.status(403).json({ message: 'Token verification failed' });
+          }
+          jwt.verify(refreshtoken, secret, (err, decoded) => {
+            if (err) {
+              return res.status(403).json({ message: 'Refresh token verification failed' });
+            }
+            const newAccessToken = jwt.sign({ id: user.id, username: user.username }, secret, {
+              expiresIn: '1h'
             });
-            res
-            .cookie('refreshtoken', refreshtoken, { httpOnly: true, sameSite: 'strict' })
-            .header('Authorization', accesstoken)
-            .status(200).json({ user: decoded.user });
-        } catch (error) {
-            return res.status(400).json({ msg: 'Invalid Token'});
+            res.cookie('token', newAccessToken, { httpOnly: true });
+            req.user = decoded.user;
+            next();
+          });
+        } else {
+          req.user = decoded.user;
+          next();
         }
-    }
+      });
 } 

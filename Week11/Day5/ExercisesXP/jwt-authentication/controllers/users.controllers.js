@@ -28,7 +28,7 @@ export const login = async(req, res) => {
             return res.status(404).json({msg: 'Username not found'});
         }
         const match = bcrypt.compareSync(password + "", row[0].password);
-        if (!match) return res.status(404).json({msg: 'Invalid password'});
+        if (!match) return res.status(401).json({msg: 'Invalid password'});
 
         const secret = process.env.ACCESS_TOKEN_SECRET;
         const user = {
@@ -40,17 +40,14 @@ export const login = async(req, res) => {
             expiresIn: '1h',
         });
         console.log(accesstoken);
-        const refreshtoken = jwt.sign({user }, secret, {
-            expiresIn: '1d',
+        const refreshtoken = jwt.sign({ user }, secret, {
+            expiresIn: '7d',
         });
 
-        res
-        .cookie('refreshtoken', refreshtoken, {
-            httpOnly: true,
-            sameSite: 'strict'
-        })
-        .header('Authorization', accesstoken)
-        .status(200).json({ user, msg: 'Login successful' });
+        res.cookie('token', accesstoken, { httpOnly: true })
+        res.cookie('refreshtoken', refreshtoken, { httpOnly: true })
+
+        res.status(200).json({ msg: 'Login successful' });
 
     } catch (error) {
         console.log('login=>', error);
@@ -59,25 +56,26 @@ export const login = async(req, res) => {
 }
 
 export const refresh = async(req, res) => {
-    const refreshtoken = req.cookies['refreshtoken'];
+    const refreshtoken = req.cookies.refreshtoken;
     if (!refreshtoken) {
-        res.status(401).json({msg: 'No refresh token provided'});
+        res.status(401).json({msg: 'Refresh token not found'});
     }
 
     const secret = process.env.ACCESS_TOKEN_SECRET;
 
-    try {
-        const decoded = jwt.verify(refreshtoken, secret);
-        const accesstoken = jwt.sign({ user: decoded.user }, secret, {
-            expiresIn: '1h',
+    jwt.verify(refreshtoken, secret, (err, user) => {
+        if (err) {
+          return res.status(403).json({ message: 'Refresh token verification failed' });
+        }
+    
+        const accesstoken = jwt.sign({ id: user.id, username: user.username }, secret, {
+          expiresIn: '1h'
         });
-        res
-        .header('Authorization', accesstoken)
-        .status(200).json({ user: decoded.user, msg: 'Token refreshed' });
-
-    } catch (error) {
-        res.status(400).json({msg: 'Ivalid refresh token'});
-    }
+ 
+        res.cookie('token', accesstoken, { httpOnly: true });
+    
+        res.status(200).json({ message: 'Token refreshed successfully' });
+    });
 }
 
 export const all = async(req, res) => {

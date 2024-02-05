@@ -18,7 +18,7 @@ usersrouter.get('/verify', verifytoken, (req, res) => {
 });
 
 usersrouter.get('/logout', (req, res) => {
-    res.status(200).clearCookie('accesstoken').json({ msg: 'Logged out'})
+    res.status(200).clearCookie('token').json({ msg: 'Logged out'})
 });
 
 export default usersrouter;
