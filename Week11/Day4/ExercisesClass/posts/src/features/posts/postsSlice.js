@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, nanoid } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, nanoid, createSelector } from "@reduxjs/toolkit";
 import axios from 'axios';
 
 const initialState = {
@@ -69,6 +69,16 @@ const postsSlice = createSlice({
     });
   },
 });
+
+export const posts = (state) => state.posts.posts;
+export const author = (state) => state.posts.author;
+
+// export const selectorPosts = createSelector(
+//   [posts, author],
+//   (posts, author) => {
+//     if (author == -1) return posts;
+//     return posts.filter(post => post.userId == author);
+// })
 
 export const { addpost, addreaction, filterAuthor } = postsSlice.actions;
 export default postsSlice.reducer;

@@ -1,5 +1,6 @@
 import { addreaction } from "./postsSlice";
 import { useDispatch } from "react-redux";
+import { memo } from 'react';
 
 const reactionEmoji = {
     thumbsUp: "👍",
@@ -27,4 +28,4 @@ const ReactionButtons = ({post}) => {
     )
 }
 
-export default ReactionButtons;
+export default memo(ReactionButtons);
